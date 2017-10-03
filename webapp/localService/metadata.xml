@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPMF_TEAM_LEADER_SUP_SRV" sap:schema-version="1" xml:lang="en"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Orderid"/>
+                </Key>
+                <Property Name="Orderid" MaxLength="12" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order"
+					sap:sortable="false" sap:updatable="false"/>
+                <Property Name="OrderType" MaxLength="4" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Order Type" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="EnteredBy" MaxLength="12" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Entered by" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="EnterDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
+					sap:label="Created on" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="ShortText" MaxLength="40" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="CompCode" MaxLength="4" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Company Code" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="Plant" MaxLength="4" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Plant"
+					sap:sortable="false" sap:updatable="false"/>
+                <Property Name="BusArea" MaxLength="4" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Business Area" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="Equipment" MaxLength="18" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="NotifNo" MaxLength="12" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="MnWkCtr" MaxLength="8" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Main WorkCtr" sap:sortable="false" sap:updatable="false"/>
+                <Property Name="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Status"
+					sap:sortable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZPMF_TEAM_LEADER_SUP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="Orders" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+					sap:pageable="false" sap:updatable="false"/>
+            </EntityContainer>
+            <atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="self"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="latest-version"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
