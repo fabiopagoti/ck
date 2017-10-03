@@ -1,165 +1,219 @@
 {
-	"run": [
-		{
-			"filePath": "/worklist2/webapp/test/flpSandbox.html",
-			"previewMode": 1,
-			"dataMode": 1,
-			"workspace": "withoutWorkspace",
-			"urlParameters": [
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				},
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				}
-			],
-			"hashParameter": "TeamLeaderSupervisory-display",
-			"ui5ActiveVersion": null,
-			"ui5VerSource": null,
-			"isDefaultVersion": 1,
-			"_metadata": {
-				"id": 1978925,
-				"runnerId": "webapprunner",
-				"displayName": "App in FLP Sandbox"
-			}
-		},
-		{
-			"filePath": "/worklist2/webapp/test/flpSandboxMockServer.html",
-			"previewMode": 1,
-			"dataMode": 1,
-			"workspace": "withoutWorkspace",
-			"urlParameters": [
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				},
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				}
-			],
-			"hashParameter": "TeamLeaderSupervisory-display",
-			"ui5ActiveVersion": null,
-			"ui5VerSource": null,
-			"isDefaultVersion": 1,
-			"_metadata": {
-				"id": 1978926,
-				"runnerId": "webapprunner",
-				"displayName": "App in FLP Sandbox (Mock Server)"
-			}
-		},
-		{
-			"filePath": "/worklist2/webapp/test/unit/unitTests.qunit.html",
-			"previewMode": 1,
-			"dataMode": 1,
-			"workspace": "withoutWorkspace",
-			"ui5ActiveVersion": null,
-			"ui5VerSource": null,
-			"isDefaultVersion": 1,
-			"urlParameters": [
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				},
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				}
-			],
-			"_metadata": {
-				"id": 8735167,
-				"runnerId": "webapprunner",
-				"displayName": "Unit Tests"
-			}
-		},
-		{
-			"filePath": "/worklist2/webapp/test/integration/opaTests.qunit.html",
-			"previewMode": 1,
-			"dataMode": 1,
-			"workspace": "withoutWorkspace",
-			"ui5ActiveVersion": null,
-			"ui5VerSource": null,
-			"isDefaultVersion": 1,
-			"urlParameters": [
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				},
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				}
-			],
-			"hashParameter": "",
-			"_metadata": {
-				"id": 3635224,
-				"runnerId": "webapprunner",
-				"displayName": "OPA Tests"
-			}
-		},
-		{
-			"filePath": "/worklist2/webapp/test/testsuite.qunit.html",
-			"previewMode": 1,
-			"dataMode": 1,
-			"workspace": "withoutWorkspace",
-			"ui5ActiveVersion": null,
-			"ui5VerSource": null,
-			"isDefaultVersion": 1,
-			"urlParameters": [
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				},
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				}
-			],
-			"hashParameter": "",
-			"_metadata": {
-				"id": 7524840,
-				"runnerId": "webapprunner",
-				"displayName": "Test Suite (Unit, OPA)"
-			}
-		},
-		{
-			"filePath": "/worklist2/webapp/Component.js",
-			"previewMode": 1,
-			"dataMode": 1,
-			"workspace": "withoutWorkspace",
-			"ui5ActiveVersion": null,
-			"ui5VerSource": null,
-			"isDefaultVersion": 1,
-			"urlParameters": [
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				},
-				{
-					"paramName": "",
-					"paramValue": "",
-					"paramActive": false
-				}
-			],
-			"hashParameter": "",
-			"_metadata": {
-				"id": 5239014,
-				"runnerId": "fiorirunner",
-				"displayName": "App as Fiori Component"
-			}
-		}
-	]
+  "run": [
+    {
+      "filePath": "/cyrius/webapp/Component.js",
+      "previewMode": 0,
+      "dataMode": 0,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": 5310226,
+        "runnerId": "fiorirunner",
+        "displayName": "App as Fiori Component - Frame",
+        "lastRunTimeStamp": 1506994092751
+      }
+    },
+    {
+      "filePath": "/webapp/test/flpSandboxMockServer.html",
+      "previewMode": 0,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": ""
+        }
+      ],
+      "hashParameter": "",
+      "backendSystem": [],
+      "urlParametersNotNeeded": false,
+      "_metadata": {
+        "id": 4179286,
+        "runnerId": "webapprunner",
+        "displayName": "Aoo in FLP Sandbox (Mock Server) - Frame",
+        "lastRunTimeStamp": 1506993961430
+      }
+    },
+    {
+      "filePath": "/cyrius/webapp/test/flpSandboxMockServer.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "TeamLeaderSupervisory-display",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "_metadata": {
+        "id": 1978926,
+        "runnerId": "webapprunner",
+        "displayName": "App in FLP Sandbox (Mock Server)",
+        "lastRunTimeStamp": 1506993798319
+      }
+    },
+    {
+      "filePath": "/cyrius/webapp/test/flpSandbox.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "TeamLeaderSupervisory-display",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "_metadata": {
+        "id": 1978925,
+        "runnerId": "webapprunner",
+        "displayName": "App in FLP Sandbox",
+        "lastRunTimeStamp": 1506993747031
+      }
+    },
+    {
+      "filePath": "/webapp/test/unit/unitTests.qunit.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "_metadata": {
+        "id": 8735167,
+        "runnerId": "webapprunner",
+        "displayName": "Unit Tests"
+      }
+    },
+    {
+      "filePath": "/cyrius/webapp/test/integration/opaTests.qunit.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": 3635224,
+        "runnerId": "webapprunner",
+        "displayName": "OPA Tests"
+      }
+    },
+    {
+      "filePath": "/cyrius/webapp/test/testsuite.qunit.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": 7524840,
+        "runnerId": "webapprunner",
+        "displayName": "Test Suite (Unit, OPA)"
+      }
+    },
+    {
+      "filePath": "/cyrius/webapp/Component.js",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "",
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": 5239014,
+        "runnerId": "fiorirunner",
+        "displayName": "App as Fiori Component"
+      }
+    }
+  ]
 }
