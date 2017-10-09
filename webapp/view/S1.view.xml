@@ -1,0 +1,60 @@
+<mvc:View controllerName="pm.tlsup.controller.S1" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage title="{i18n>s1_title}" showFooter="false">
+		<semantic:content>
+			<Table id="table" class="sapUiResponsiveMargin" items="{ path: '/Orders', sorter: { path: 'ItemNumber', descending: false } }"
+				noDataText="{i18n>s1_table_no_text}" busyIndicatorDelay="{view>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+				updateFinished="onUpdateFinished">
+				<headerToolbar>
+					<Toolbar>
+						<content>
+							<Title text="{i18n>s1_table_title}"/>
+							<ToolbarSpacer/>
+							<SearchField id="searchField" tooltip="{i18n>s1_searchfield_tooltip}" width="auto" search="onSearch"/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>term_item}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>term_order_id}"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="{i18n>term_order_description}"/>
+					</Column>
+					<Column >
+						<Text text="{i18n>term_order_type}"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="{i18n>term_assigned_to}"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="{i18n>term_created_on}"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="{i18n>term_equipment}"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+						<Text text="{i18n>term_order_status}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onPress">
+						<cells>
+							<ObjectIdentifier title="{ItemNumber}"/>
+							<ObjectNumber number="{Orderid}"/>
+							<Text text="{ShortText}"/>
+							<Text text="{OrderType}"/>
+							<Text text="{MnWkCtr}"/>
+							<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd / MM / yyyy' } }"/>
+							<Text text="{Equipment}"/>
+							<ObjectStatus text="{path: 'Status', formatter: '.formatter.statusText'}" icon="{path: 'Status', formatter: '.formatter.statusIcon'}"
+								state="{path: 'Status', formatter: '.formatter.statusState'}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+	</semantic:FullscreenPage>
+</mvc:View>

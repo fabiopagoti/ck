@@ -1,0 +1,5 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="pm.tlsup.controller.S0" displayBlock="true" xmlns="sap.m">
+	<App id="root" busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}">
+		<pages></pages>
+	</App>
+</mvc:View>

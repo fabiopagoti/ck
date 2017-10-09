@@ -1,0 +1,181 @@
+[{
+	"Orderid": "10",
+	"OrderType": "OrderType 1",
+	"EnteredBy": "EnteredBy 1",
+	"EnterDate": "/Date(1239764400000)/",
+	"ShortText": "ShortText 1",
+	"CompCode": "CompCode 1",
+	"Plant": "Plant 1",
+	"BusArea": "BusArea 1",
+	"Equipment": "Equipment 1",
+	"NotifNo": "NotifNo 1",
+	"MnWkCtr": "MnWkCtr 1",
+	"Status": "1",
+	"__metadata": {
+		"uri": "Orders('Orderid%201')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 1
+}, {
+	"Orderid": "20",
+	"OrderType": "OrderType 2",
+	"EnteredBy": "EnteredBy 2",
+	"EnterDate": "/Date(1461897950000)/",
+	"ShortText": "ShortText 2",
+	"CompCode": "CompCode 2",
+	"Plant": "Plant 2",
+	"BusArea": "BusArea 2",
+	"Equipment": "Equipment 2",
+	"NotifNo": "NotifNo 2",
+	"MnWkCtr": "MnWkCtr 2",
+	"Status": "2",
+	"__metadata": {
+		"uri": "Orders('Orderid%202')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 2
+}, {
+	"Orderid": "Orderid 3",
+	"OrderType": "OrderType 3",
+	"EnteredBy": "EnteredBy 3",
+	"EnterDate": "/Date(1278989150000)/",
+	"ShortText": "ShortText 3",
+	"CompCode": "CompCode 3",
+	"Plant": "Plant 3",
+	"BusArea": "BusArea 3",
+	"Equipment": "Equipment 3",
+	"NotifNo": "NotifNo 3",
+	"MnWkCtr": "MnWkCtr 3",
+	"Status": "3",
+	"__metadata": {
+		"uri": "Orders('Orderid%203')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 3
+}, {
+	"Orderid": "Orderid 4",
+	"OrderType": "OrderType 4",
+	"EnteredBy": "EnteredBy 4",
+	"EnterDate": "/Date(1096944350000)/",
+	"ShortText": "ShortText 4",
+	"CompCode": "CompCode 4",
+	"Plant": "Plant 4",
+	"BusArea": "BusArea 4",
+	"Equipment": "Equipment 4",
+	"NotifNo": "NotifNo 4",
+	"MnWkCtr": "MnWkCtr 4",
+	"Status": "1",
+	"__metadata": {
+		"uri": "Orders('Orderid%204')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 4
+}, {
+	"Orderid": "Orderid 5",
+	"OrderType": "OrderType 5",
+	"EnteredBy": "EnteredBy 5",
+	"EnterDate": "/Date(1307501150000)/",
+	"ShortText": "ShortText 5",
+	"CompCode": "CompCode 5",
+	"Plant": "Plant 5",
+	"BusArea": "BusArea 5",
+	"Equipment": "Equipment 5",
+	"NotifNo": "NotifNo 5",
+	"MnWkCtr": "MnWkCtr 5",
+	"Status": "2",
+	"__metadata": {
+		"uri": "Orders('Orderid%205')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 5
+}, {
+	"Orderid": "Orderid 6",
+	"OrderType": "OrderType 6",
+	"EnteredBy": "EnteredBy 6",
+	"EnterDate": "/Date(1337309150000)/",
+	"ShortText": "ShortText 6",
+	"CompCode": "CompCode 6",
+	"Plant": "Plant 6",
+	"BusArea": "BusArea 6",
+	"Equipment": "Equipment 6",
+	"NotifNo": "NotifNo 6",
+	"MnWkCtr": "MnWkCtr 6",
+	"Status": "3",
+	"__metadata": {
+		"uri": "Orders('Orderid%206')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 6
+}, {
+	"Orderid": "Orderid 7",
+	"OrderType": "OrderType 7",
+	"EnteredBy": "EnteredBy 7",
+	"EnterDate": "/Date(1516153550000)/",
+	"ShortText": "ShortText 7",
+	"CompCode": "CompCode 7",
+	"Plant": "Plant 7",
+	"BusArea": "BusArea 7",
+	"Equipment": "Equipment 7",
+	"NotifNo": "NotifNo 7",
+	"MnWkCtr": "MnWkCtr 7",
+	"Status": "1",
+	"__metadata": {
+		"uri": "Orders('Orderid%207')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 7
+}, {
+	"Orderid": "Orderid 8",
+	"OrderType": "OrderType 8",
+	"EnteredBy": "EnteredBy 8",
+	"EnterDate": "/Date(1065667550000)/",
+	"ShortText": "ShortText 8",
+	"CompCode": "CompCode 8",
+	"Plant": "Plant 8",
+	"BusArea": "BusArea 8",
+	"Equipment": "Equipment 8",
+	"NotifNo": "NotifNo 8",
+	"MnWkCtr": "MnWkCtr 8",
+	"Status": "2",
+	"__metadata": {
+		"uri": "Orders('Orderid%208')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 8
+}, {
+	"Orderid": "Orderid 9",
+	"OrderType": "OrderType 9",
+	"EnteredBy": "EnteredBy 9",
+	"EnterDate": "/Date(1129085150000)/",
+	"ShortText": "ShortText 9",
+	"CompCode": "CompCode 9",
+	"Plant": "Plant 9",
+	"BusArea": "BusArea 9",
+	"Equipment": "Equipment 9",
+	"NotifNo": "NotifNo 9",
+	"MnWkCtr": "MnWkCtr 9",
+	"Status": "3",
+	"__metadata": {
+		"uri": "Orders('Orderid%209')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 9
+}, {
+	"Orderid": "Orderid 10",
+	"OrderType": "OrderType 10",
+	"EnteredBy": "EnteredBy 10",
+	"EnterDate": "/Date(1277693150000)/",
+	"ShortText": "ShortText 10",
+	"CompCode": "CompCode 10",
+	"Plant": "Plant 10",
+	"BusArea": "BusArea 10",
+	"Equipment": "Equipment 10",
+	"NotifNo": "NotifNo 10",
+	"MnWkCtr": "MnWkCtr 10",
+	"Status": "4",
+	"__metadata": {
+		"uri": "Orders('Orderid%2010')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Order"
+	},
+	"ItemNumber": 10
+}]

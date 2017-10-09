@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="pm.tlsup.controller.Object"
+	controllerName="pm.tlsup.controller.S2"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.m.semantic"

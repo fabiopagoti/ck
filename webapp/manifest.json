@@ -46,7 +46,7 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "pm.tlsup.view.App",
+			"viewName": "pm.tlsup.view.S0",
 			"type": "XML",
 			"id": "app"
 		},
@@ -60,9 +60,6 @@
 					"minVersion": "1.36.0"
 				},
 				"sap.ui.layout": {
-					"minVersion": "1.36.0"
-				},
-				"sap.ushell": {
 					"minVersion": "1.36.0"
 				}
 			}
@@ -88,14 +85,7 @@
 			}
 		},
 		"services": {
-			"ShellUIService": {
-				"factoryName": "sap.ushell.ui5service.ShellUIService",
-				"lazy": false,
-				"settings": {
-					"setHierarchy": "auto",
-					"setTitle": "auto"
-				}
-			}
+			
 		},
 		"routing": {
 			"config": {
@@ -111,25 +101,41 @@
 			},
 			"routes": [{
 				"pattern": "",
-				"name": "worklist",
-				"target": ["worklist"]
+				"name": "list",
+				"target": ["list"]
 			}, {
-				"pattern": "Orders/{objectId}",
-				"name": "object",
-				"target": ["object"]
+				"pattern": "Notification/{id}",
+				"name": "notification",
+				"target": ["notification"]
+			}, {
+				"pattern": "Orders/{id}",
+				"name": "order",
+				"target": ["order"]
+			}, {
+				"pattern": "Notification/{id}/createOrder",
+				"name": "order-create",
+				"target": ["order-create"]
 			}],
 			"targets": {
-				"worklist": {
-					"viewName": "Worklist",
-					"viewId": "worklist",
-					"viewLevel": 1,
-					"title": "{i18n>worklistViewTitle}"
+				"list": {
+					"viewName": "S1",
+					"viewId": "S1",
+					"viewLevel": 1
 				},
-				"object": {
-					"viewName": "Object",
-					"viewId": "object",
-					"viewLevel": 2,
-					"title": "{i18n>objectViewTitle}"
+				"notification": {
+					"viewName": "S2",
+					"viewId": "S2",
+					"viewLevel": 2
+				},
+				"order": {
+					"viewName": "S3",
+					"viewId": "S3",
+					"viewLevel": 2
+				},
+				"order-create": {
+					"viewName": "S4",
+					"viewId": "S4",
+					"viewLevel": 3
 				},
 				"objectNotFound": {
 					"viewName": "ObjectNotFound",
