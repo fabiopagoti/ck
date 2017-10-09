@@ -98,7 +98,10 @@ sap.ui.define([
 		onConfirmMaintainer: function(oEvent) {
 			var oSelectedItem = oEvent.getParameter("selectedItem");
 			if (oSelectedItem) {
-				// this.getModel().
+				var oBindingContext = this.getView().getBindingContext();
+				var oModel = this.getModel();
+				oModel.setProperty("Maintainer", oSelectedItem.getBindingContext().getObject().Id, oBindingContext);
+				oModel.setProperty("MaintainerName", oSelectedItem.getBindingContext().getObject().Name, oBindingContext);
 			}
 			oEvent.getSource().getBinding("items").filter([]);
 		},
@@ -119,10 +122,9 @@ sap.ui.define([
 							break;
 						default:
 					}
-				}
+				}.bind(this)
 			});
 
-			MessageToast.show(this.getText("s3_save_success", 123));
 		},
 
 		/* =========================================================== */
@@ -176,11 +178,35 @@ sap.ui.define([
 
 		_assign: function() {
 			var oModel = this.getModel();
-			// var sPath = oModel.createKey("Orders", {
-			// 	Orderid: 
-			// }); 
-			// oModel.create()
+			var oBindingContext = this.getView().getBindingContext();
+			var oData = oBindingContext.getObject();
+			var sId = oData.Orderid;
+			var sPath = oModel.createKey("/Orders", {
+				Orderid: sId
+			});
 
+			function onSuccess(oData, oRespose) {
+				this.getRouter().navTo("list");
+				MessageToast.show(this.getText("s3_save_success", sId), {
+					closeOnBrowserNavigation: false
+				});
+			}
+
+			function onError(err) {
+				MessageBox.error(this.getText("s3_save_error"));
+			}
+
+			var oOptions = {
+				success: onSuccess.bind(this),
+				error: onError.bind(this),
+				refreshAfterChange: true
+			};
+
+			oModel.update(
+				sPath,
+				oData,
+				oOptions
+			);
 		}
 
 	});

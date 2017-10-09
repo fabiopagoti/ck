@@ -27,7 +27,8 @@
 					<Label text="{i18n>s3_form_label_assigned_to}"/>
 					<Text text="{AssignedTo}"/>
 					<Label text="{i18n>s3_form_label_maintainer}"/>
-					<Input value="{Maintainer}" showValueHelp="true" type="Text" valueHelpRequest=".onValueHelpRequestMaintainer"/>
+					<Input value="{Maintainer}" valueHelpOnly="true" showValueHelp="true" type="Text" valueHelpRequest=".onValueHelpRequestMaintainer"
+						description="{= ${Maintainer}? ${MaintainerName} : null }"/>
 				</form:content>
 			</form:SimpleForm>
 		</semantic:content>

@@ -2,7 +2,7 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<SelectDialog
-		title="f1_title"
+		title="{i18n>f1_title}"
 		class="sapUiPopupWithPadding"
 		items="{/Maintainers}"
 		search="onSearchMaintainer"
