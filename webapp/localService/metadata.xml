@@ -40,10 +40,17 @@
 				<Property Name="Id" Type="Edm.String" Nullable="false"></Property>
 				<Property Name="Name" Type="Edm.String" Nullable="false"></Property>
 			</EntityType>
+			<EntityType Name="Notification">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="Id" Type="Edm.String" MaxLength="12" Nullable="true"></Property>
+			</EntityType>
 			<EntityContainer Name="ZPMF_TEAM_LEADER_SUP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
 				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="Orders" sap:content-version="1" sap:creatable="false" sap:deletable="false"
 					sap:pageable="false" sap:updatable="false"/>
 				<EntitySet Name="Maintainers" EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Maintainer"></EntitySet>
+				<EntitySet Name="Notifications" EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Notification" sap:deletable="true"></EntitySet>
 			</EntityContainer>
 			<atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="self"
 				xmlns:atom="http://www.w3.org/2005/Atom"/>

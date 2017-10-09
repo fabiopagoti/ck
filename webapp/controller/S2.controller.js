@@ -1,14 +1,15 @@
-/*global location*/
 sap.ui.define([
 	"pm/tlsup/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/routing/History",
-	"pm/tlsup/model/formatter"
+	"pm/tlsup/model/formatter",
+	"sap/m/MessageToast",
+	"sap/m/MessageBox"
 ], function(
 	BaseController,
 	JSONModel,
-	History,
-	formatter
+	formatter,
+	MessageToast,
+	MessageBox
 ) {
 	"use strict";
 
@@ -25,24 +26,13 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function() {
-			// Model used to manipulate control states. The chosen values make sure,
-			// detail page is busy indication immediately so there is no break in
-			// between the busy indication for loading the view's meta data
-			var iOriginalBusyDelay,
-				oViewModel = new JSONModel({
-					busy: true,
-					delay: 0
-				});
+			var oViewModel = new JSONModel({
+				busy: false
+			});
 
+			this.setModel(oViewModel, "view");
 			this.getRouter().getRoute("notification").attachPatternMatched(this.onPatternMatched, this);
 
-			// Store original busy indicator delay, so it can be restored later on
-			iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
-			this.setModel(oViewModel, "objectView");
-			this.getOwnerComponent().getModel().metadataLoaded().then(function() {
-				// Restore original busy indicator delay for the object view
-				oViewModel.setProperty("/delay", iOriginalBusyDelay);
-			});
 		},
 
 		/* =========================================================== */
@@ -62,11 +52,28 @@ sap.ui.define([
 		onPatternMatched: function(oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
 			this.getModel().metadataLoaded().then(function() {
-				// var sObjectPath = this.getModel().createKey("Orders", {
-				// 	Orderid: sObjectId
-				// });
-				// this._bindView("/" + sObjectPath);
+				var sObjectPath = this.getModel().createKey("/Orders", {
+					Orderid: oArguments.id
+				});
+				this._bindView(sObjectPath);
 			}.bind(this));
+		},
+
+		onReject: function(oEvent) {
+			MessageBox.show(this.getText("s2_reject_confirmation"), {
+				icon: MessageBox.Icon.WARNING,
+				title: this.getText("s2_title"),
+				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+				onClose: function(sAction) {
+					switch (sAction) {
+						case "YES":
+							this._reject();
+							break;
+						default:
+					}
+				}.bind(this)
+			});
+
 		},
 
 		/* =========================================================== */
@@ -80,7 +87,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_bindView: function(sObjectPath) {
-			var oViewModel = this.getModel("objectView"),
+			var oViewModel = this.getModel("view"),
 				oDataModel = this.getModel();
 
 			this.getView().bindElement({
@@ -89,10 +96,6 @@ sap.ui.define([
 					change: this._onBindingChange.bind(this),
 					dataRequested: function() {
 						oDataModel.metadataLoaded().then(function() {
-							// Busy indicator on view should only be set if metadata is loaded,
-							// otherwise there may be two busy indications next to each other on the
-							// screen. This happens because route matched handler already calls '_bindView'
-							// while metadata is loaded.
 							oViewModel.setProperty("/busy", true);
 						});
 					},
@@ -105,28 +108,48 @@ sap.ui.define([
 
 		_onBindingChange: function() {
 			var oView = this.getView(),
-				oViewModel = this.getModel("objectView"),
+				oViewModel = this.getModel("view"),
 				oElementBinding = oView.getElementBinding();
 
 			// No data for the binding
 			if (!oElementBinding.getBoundContext()) {
-				this.getRouter().getTargets().display("objectNotFound");
+				this.getRouter().navTo("objectNotFound");
 				return;
 			}
 
-			var oResourceBundle = this.getResourceBundle(),
-				oObject = oView.getBindingContext().getObject(),
-				sObjectId = oObject.Orderid,
-				sObjectName = oObject.ShortText;
-
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
-			oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("saveAsTileTitle", [sObjectName]));
-			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
-			oViewModel.setProperty("/shareSendEmailSubject",
-				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
-			oViewModel.setProperty("/shareSendEmailMessage",
-				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+		},
+
+		_reject: function() {
+			var oModel = this.getModel();
+			var oBindingContext = this.getView().getBindingContext();
+			var sId = oBindingContext.getObject().Orderid;
+			var sPath = oModel.createKey("/Notifications", {
+				Id: sId
+			});
+
+			function onSuccess(oData, oRespose) {
+				this.getRouter().navTo("list");
+				MessageToast.show(this.getText("s2_reject_success", sId), {
+					closeOnBrowserNavigation: false
+				});
+			}
+
+			function onError(err) {
+				MessageBox.error(this.getText("s2_reject_error"));
+			}
+
+			var oOptions = {
+				success: onSuccess.bind(this),
+				error: onError.bind(this),
+				refreshAfterChange: true
+			};
+
+			oModel.remove(
+				sPath,
+				oOptions
+			);
 		}
 
 	});
