@@ -34,7 +34,7 @@
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
 						<Text text="{i18n>term_equipment}"/>
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
+					<Column>
 						<Text text="{i18n>term_order_status}"/>
 					</Column>
 				</columns>

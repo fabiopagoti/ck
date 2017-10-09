@@ -1,0 +1,39 @@
+<mvc:View controllerName="pm.tlsup.controller.S4" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage title="{i18n>s4_title}" busy="{view>/busy}" showNavButton="true" navButtonPress=".onNavBack">
+		<semantic:content>
+			<form:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="4" emptySpanL="4"
+				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+				<form:content>
+					<core:Title text="{i18n>s4_form_title}"/>
+					<Label text="{i18n>s4_form_label_id}"/>
+					<Text text="{Orderid}"/>
+					<Label text="{i18n>s4_form_label_type}"/>
+					<Text text="{OrderType}"/>
+					<Label text="{i18n>s4_form_label_description}"/>
+					<Text text="{ShortText}"/>
+					<Label text="{i18n>s4_form_label_equipment}"/>
+					<Text text="{Equipment}"/>
+					<Label text="{i18n>s4_form_label_equipment_name}"/>
+					<Text text="{EquipmentName}"/>
+					<Label text="{i18n>s4_form_label_superior}"/>
+					<Text text="{Superior}"/>
+					<Label text="{i18n>s4_form_label_order_date}"/>
+					<Text text="{OrderDate}"/>
+					<Label text="{i18n>s4_form_label_notification_date}"/>
+					<Text text="{NotificationDate}"/>
+					<Label text="{i18n>s4_form_label_associated_notification}"/>
+					<Text text="{Notification}"/>
+					<Label text="{i18n>s4_form_label_assigned_to}"/>
+					<Text text="{AssignedTo}"/>
+					<Label text="{i18n>s4_form_label_maintainer}"/>
+					<Input value="{Maintainer}" valueHelpOnly="true" showValueHelp="true" type="Text" valueHelpRequest=".onValueHelpRequestMaintainer"
+						description="{= ${Maintainer}? ${MaintainerName} : null }"/>
+				</form:content>
+			</form:SimpleForm>
+		</semantic:content>
+		<semantic:mainAction>
+			<semantic:MainAction text="{i18n>s4_button_text_save}" press=".onSave"/>
+		</semantic:mainAction>
+	</semantic:FullscreenPage>
+</mvc:View>

@@ -46,7 +46,9 @@ sap.ui.define([
 			var oPressItem = oEvent.getParameters().listItem;
 			var oBindingContext = oPressItem.getBindingContext();
 			var oItemObject = oBindingContext.getObject();
-			this._navigate(oItemObject);
+			if (oItemObject.Status !== this.STATUS_CLOSED) {
+				this._navigate(oItemObject);
+			}
 		},
 
 		onSearch: function(oEvent) {

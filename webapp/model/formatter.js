@@ -17,7 +17,7 @@ sap.ui.define([], function() {
 					return "";
 			}
 		},
-		
+
 		orderTypeText: function(sOrderType) {
 			switch (sOrderType) {
 				case this.WORK_ORDER_TYPE_EMERGENCY:
@@ -34,11 +34,11 @@ sap.ui.define([], function() {
 		statusText: function(sStatus) {
 			switch (sStatus) {
 				case this.STATUS_CREATED:
-					return "Creato";
-				case "2":
-					return "Rilasciato";
-				case "3":
-					return "Closed";
+					return this.getText("STATUS_CREATED");
+				case this.STATUS_RELEASED:
+					return this.getText("STATUS_RELEASED");
+				case this.STATUS_CLOSED:
+					return this.getText("STATUS_CLOSED");
 				default:
 					return sStatus;
 			}
@@ -68,21 +68,7 @@ sap.ui.define([], function() {
 				default:
 					return "sap-icon://question-mark";
 			}
-		},
-
-		/**
-		 * Rounds the number unit value to 2 digits
-		 * @public
-		 * @param {string} sValue the number string to be rounded
-		 * @returns {string} sValue with 2 digits rounded
-		 */
-		numberUnit: function(sValue) {
-			if (!sValue) {
-				return "";
-			}
-			return parseFloat(sValue).toFixed(2);
 		}
-
 	};
 
 });

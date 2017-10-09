@@ -6,6 +6,9 @@ sap.ui.define([
 	return Controller.extend("pm.tlsup.controller.BaseController", {
 		/* Status */
 		STATUS_CREATED: "1",
+		STATUS_RELEASED: "2",
+		STATUS_CLOSED: "3",
+		
 
 		/* Work order types */
 		WORK_ORDER_TYPE_EMERGENCY: "EWO",
