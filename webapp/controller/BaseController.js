@@ -41,21 +41,7 @@ sap.ui.define([
 			 */
 			getResourceBundle : function () {
 				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
-			},
-
-			/**
-			 * Event handler when the share by E-Mail button has been clicked
-			 * @public
-			 */
-			onShareEmailPress : function () {
-				var oViewModel = (this.getModel("objectView") || this.getModel("worklistView"));
-				sap.m.URLHelper.triggerEmail(
-					null,
-					oViewModel.getProperty("/shareSendEmailSubject"),
-					oViewModel.getProperty("/shareSendEmailMessage")
-				);
 			}
-
 		});
 
 	}

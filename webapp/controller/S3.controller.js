@@ -12,7 +12,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return BaseController.extend("pm.tlsup.controller.S2", {
+	return BaseController.extend("pm.tlsup.controller.S3", {
 
 		formatter: formatter,
 

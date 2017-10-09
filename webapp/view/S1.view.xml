@@ -2,8 +2,7 @@
 	<semantic:FullscreenPage title="{i18n>s1_title}" showFooter="false">
 		<semantic:content>
 			<Table id="table" class="sapUiResponsiveMargin" items="{ path: '/Orders', sorter: { path: 'ItemNumber', descending: false } }"
-				noDataText="{i18n>s1_table_no_text}" busyIndicatorDelay="{view>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
-				updateFinished="onUpdateFinished">
+				noDataText="{i18n>s1_table_no_text}" growing="true" growingScrollToLoad="true" itemPress=".onItemPress">
 				<headerToolbar>
 					<Toolbar>
 						<content>
@@ -40,7 +39,7 @@
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem type="Navigation" press="onPress">
+					<ColumnListItem type="Navigation">
 						<cells>
 							<ObjectIdentifier title="{ItemNumber}"/>
 							<ObjectNumber number="{Orderid}"/>

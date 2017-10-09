@@ -1,6 +1,6 @@
 [{
 	"Orderid": "10",
-	"OrderType": "OrderType 1",
+	"OrderType": "EWO",
 	"EnteredBy": "EnteredBy 1",
 	"EnterDate": "/Date(1239764400000)/",
 	"ShortText": "ShortText 1",
@@ -18,7 +18,7 @@
 	"ItemNumber": 1
 }, {
 	"Orderid": "20",
-	"OrderType": "OrderType 2",
+	"OrderType": "MWO",
 	"EnteredBy": "EnteredBy 2",
 	"EnterDate": "/Date(1461897950000)/",
 	"ShortText": "ShortText 2",
@@ -36,7 +36,7 @@
 	"ItemNumber": 2
 }, {
 	"Orderid": "Orderid 3",
-	"OrderType": "OrderType 3",
+	"OrderType": "CWO",
 	"EnteredBy": "EnteredBy 3",
 	"EnterDate": "/Date(1278989150000)/",
 	"ShortText": "ShortText 3",
@@ -54,7 +54,7 @@
 	"ItemNumber": 3
 }, {
 	"Orderid": "Orderid 4",
-	"OrderType": "OrderType 4",
+	"OrderType": "MN",
 	"EnteredBy": "EnteredBy 4",
 	"EnterDate": "/Date(1096944350000)/",
 	"ShortText": "ShortText 4",
@@ -72,7 +72,7 @@
 	"ItemNumber": 4
 }, {
 	"Orderid": "Orderid 5",
-	"OrderType": "OrderType 5",
+	"OrderType": "EWO",
 	"EnteredBy": "EnteredBy 5",
 	"EnterDate": "/Date(1307501150000)/",
 	"ShortText": "ShortText 5",
@@ -90,7 +90,7 @@
 	"ItemNumber": 5
 }, {
 	"Orderid": "Orderid 6",
-	"OrderType": "OrderType 6",
+	"OrderType": "MN",
 	"EnteredBy": "EnteredBy 6",
 	"EnterDate": "/Date(1337309150000)/",
 	"ShortText": "ShortText 6",
@@ -108,7 +108,7 @@
 	"ItemNumber": 6
 }, {
 	"Orderid": "Orderid 7",
-	"OrderType": "OrderType 7",
+	"OrderType": "MWO",
 	"EnteredBy": "EnteredBy 7",
 	"EnterDate": "/Date(1516153550000)/",
 	"ShortText": "ShortText 7",
@@ -126,7 +126,7 @@
 	"ItemNumber": 7
 }, {
 	"Orderid": "Orderid 8",
-	"OrderType": "OrderType 8",
+	"OrderType": "CWO",
 	"EnteredBy": "EnteredBy 8",
 	"EnterDate": "/Date(1065667550000)/",
 	"ShortText": "ShortText 8",
@@ -144,7 +144,7 @@
 	"ItemNumber": 8
 }, {
 	"Orderid": "Orderid 9",
-	"OrderType": "OrderType 9",
+	"OrderType": "EWO",
 	"EnteredBy": "EnteredBy 9",
 	"EnterDate": "/Date(1129085150000)/",
 	"ShortText": "ShortText 9",
@@ -162,7 +162,7 @@
 	"ItemNumber": 9
 }, {
 	"Orderid": "Orderid 10",
-	"OrderType": "OrderType 10",
+	"OrderType": "MWO",
 	"EnteredBy": "EnteredBy 10",
 	"EnterDate": "/Date(1277693150000)/",
 	"ShortText": "ShortText 10",

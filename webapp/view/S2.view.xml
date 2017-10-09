@@ -1,37 +1,27 @@
-<mvc:View
-	controllerName="pm.tlsup.controller.S2"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic"
-	xmlns:footerbar="sap.ushell.ui.footerbar">
-
-	<semantic:FullscreenPage
-		id="page"
-        semanticRuleSet="Optimized"
-		title="{i18n>objectTitle}"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}">
-
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:semantic="sap.m.semantic"
+	controllerName="pm.tlsup.controller.S2">
+	<semantic:FullscreenPage title="{i18n>s2_title}" busy="{view>/busy}" showNavButton="true" navButtonPress=".onNavBack">
 		<semantic:content>
-			<ObjectHeader
-				id="objectHeader"
-				title="{ShortText}"
-				numberUnit="{OrderType}">
-			</ObjectHeader>
- 		</semantic:content>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
-		</semantic:sendEmailAction>
-
-		<semantic:shareInJamAction>
-			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
-		</semantic:shareInJamAction>
-
-		<semantic:saveAsTileAction>
-			<footerbar:AddBookmarkButton id ="shareTile" title="{objectView>/saveAsTileTitle}" />
-		</semantic:saveAsTileAction>
-
+			<form:SimpleForm layout="ResponsiveLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" emptySpanXL="4" emptySpanL="4"
+				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<form:content>
+					<core:Title text="{i18n>s2_form_title}"/>
+					<Label text="{i18n>s2_form_label_id}"/>
+					<Text/>
+					<Label text="{i18n>s2_form_label_description}"/>
+					<Text/>
+					<Label text="{i18n>s2_form_label_equipment}"/>
+					<Text/>
+					<Label text="{i18n>s2_form_label_equipment_name}"/>
+					<Text/>
+				</form:content>
+			</form:SimpleForm>
+		</semantic:content>
+		<semantic:positiveAction>
+			<semantic:PositiveAction text="{i18n>s2_button_text_create}" press=".onCreate"/>
+		</semantic:positiveAction>
+		<semantic:negativeAction>
+			<semantic:NegativeAction text="{i18n>s2_button_text_reject}" press=".onReject"/>
+		</semantic:negativeAction>
 	</semantic:FullscreenPage>
-
 </mvc:View>

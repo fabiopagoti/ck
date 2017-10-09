@@ -1,0 +1,34 @@
+<mvc:View controllerName="pm.tlsup.controller.S3" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
+	<semantic:FullscreenPage title="{i18n>s3_title}" busy="{view>/busy}" showNavButton="true" navButtonPress=".onNavBack">
+		<semantic:content>
+			<form:SimpleForm layout="ResponsiveLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" emptySpanXL="4" emptySpanL="4"
+				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+				<form:content>
+					<core:Title text="{i18n>s3_form_title}"/>
+					<Label text="{i18n>s3_form_label_id}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_type}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_equipment}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_equipment_name}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_superior}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_order_date}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_notification_date}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_associated_notification}"/>
+					<Text/>
+					<Label text="{i18n>s3_form_label_assigned_to}"/>
+					<Text/>
+				</form:content>
+			</form:SimpleForm>
+		</semantic:content>
+		<semantic:mainAction>
+			<semantic:MainAction text="{i18n>s3_button_text_save}" press=".onSave"/>
+		</semantic:mainAction>
+	</semantic:FullscreenPage>
+</mvc:View>
