@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="f1_title"
+		class="sapUiPopupWithPadding"
+		items="{/Maintainers}"
+		search="onSearchMaintainer"
+		confirm="onConfirmMaintainer"
+		cancel="onCancelMaintainer">
+		<StandardListItem
+			title="{Id}"
+			description="{Name}"  />
+	</SelectDialog>
+</core:FragmentDefinition>

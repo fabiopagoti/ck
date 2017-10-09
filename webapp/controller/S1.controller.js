@@ -46,35 +46,22 @@ sap.ui.define([
 			var oPressItem = oEvent.getParameters().listItem;
 			var oBindingContext = oPressItem.getBindingContext();
 			var oItemObject = oBindingContext.getObject();
-			this._showObject(oItemObject);
+			this._navigate(oItemObject);
 		},
 
 		onSearch: function(oEvent) {
 			if (oEvent.getParameters().refreshButtonPressed) {
-				// Search field's 'refresh' button has been pressed.
-				// This is visible if you select any master list item.
-				// In this case no new search is triggered, we only
-				// refresh the list binding.
-				this.onRefresh();
+				this._oTable.getBinding("items").refresh();
 			} else {
-				var oTableSearchState = [];
+				var aFilters = [];
 				var sQuery = oEvent.getParameter("query");
 
 				if (sQuery && sQuery.length > 0) {
-					oTableSearchState = [new Filter("ShortText", FilterOperator.Contains, sQuery)];
+					aFilters.push(new Filter("Orderid", FilterOperator.EQ, sQuery));
 				}
-				this._applySearch(oTableSearchState);
+				this._oTable.getBinding("items").filter(aFilters, "Application");
 			}
 
-		},
-
-		/**
-		 * Event handler for refresh event. Keeps filter, sort
-		 * and group settings and refreshes the list binding.
-		 * @public
-		 */
-		onRefresh: function() {
-			this._oTable.getBinding("items").refresh();
 		},
 
 		/* =========================================================== */
@@ -82,20 +69,19 @@ sap.ui.define([
 		/* =========================================================== */
 
 		/**
-		 * Shows the selected item on the object page
-		 * On phones a additional history entry is created
-		 * @param {sap.m.ObjectListItem} oItem selected Item
+		 * Navigates to detail screen depending on the Order Type
+		 * @param {Order} oItem selected Item
 		 * @private
 		 */
-		_showObject: function(oItem) {
+		_navigate: function(oItem) {
 			var sRoute;
 			switch (oItem.OrderType) {
-				case "EWO":
-				case "MN":
+				case this.WORK_ORDER_TYPE_EMERGENCY:
+				case this.WORK_ORDER_TYPE_CONVEYOR:
+				case this.WORK_ORDER_TYPE_MAINTENANCE:
 					sRoute = "order";
 					break;
-				case "MWO":
-				case "CWO":
+				case this.NOTIFICATION_TYPE_MAINTENANCE:
 					sRoute = "notification";
 					break;
 				default:
@@ -103,20 +89,6 @@ sap.ui.define([
 			this.getRouter().navTo(sRoute, {
 				id: oItem.Orderid
 			});
-		},
-
-		/**
-		 * Internal helper method to apply both filter and search state together on the list binding
-		 * @param {object} oTableSearchState an array of filters for the search
-		 * @private
-		 */
-		_applySearch: function(oTableSearchState) {
-			var oViewModel = this.getModel("worklistView");
-			this._oTable.getBinding("items").filter(oTableSearchState, "Application");
-			// changes the noDataText of the list in case there are no filter results
-			if (oTableSearchState.length !== 0) {
-				oViewModel.setProperty("/tableNoDataText", this.getResourceBundle().getText("worklistNoDataWithSearchText"));
-			}
 		}
 
 	});

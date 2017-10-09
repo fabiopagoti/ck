@@ -3,9 +3,37 @@ sap.ui.define([], function() {
 
 	return {
 
+		orderTypeIcon: function(sOrderType) {
+			switch (sOrderType) {
+				case this.WORK_ORDER_TYPE_EMERGENCY:
+					return "sap-icon://alert";
+				case this.WORK_ORDER_TYPE_CONVEYOR:
+					return "sap-icon://inventory";
+				case this.WORK_ORDER_TYPE_MAINTENANCE:
+					return "sap-icon://technical-object";
+				case this.NOTIFICATION_TYPE_MAINTENANCE:
+					return "sap-icon://notification";
+				default:
+					return "";
+			}
+		},
+		
+		orderTypeText: function(sOrderType) {
+			switch (sOrderType) {
+				case this.WORK_ORDER_TYPE_EMERGENCY:
+					return this.getText("WORK_ORDER_TYPE_EMERGENCY");
+				case this.WORK_ORDER_TYPE_CONVEYOR:
+					return this.getText("WORK_ORDER_TYPE_CONVEYOR");
+				case this.WORK_ORDER_TYPE_MAINTENANCE:
+					return this.getText("WORK_ORDER_TYPE_MAINTENANCE");
+				case this.NOTIFICATION_TYPE_MAINTENANCE:
+					return this.getText("NOTIFICATION_TYPE_MAINTENANCE");
+			}
+		},
+
 		statusText: function(sStatus) {
 			switch (sStatus) {
-				case "1":
+				case this.STATUS_CREATED:
 					return "Creato";
 				case "2":
 					return "Rilasciato";
@@ -18,7 +46,7 @@ sap.ui.define([], function() {
 
 		statusState: function(sStatus) {
 			switch (sStatus) {
-				case "1":
+				case this.STATUS_CREATED:
 					return "Success";
 				case "2":
 					return "Warning";
@@ -31,7 +59,7 @@ sap.ui.define([], function() {
 
 		statusIcon: function(sStatus) {
 			switch (sStatus) {
-				case "1":
+				case this.STATUS_CREATED:
 					return "sap-icon://create-form";
 				case "2":
 					return "sap-icon://create";

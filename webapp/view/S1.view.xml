@@ -1,14 +1,14 @@
 <mvc:View controllerName="pm.tlsup.controller.S1" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
 	<semantic:FullscreenPage title="{i18n>s1_title}" showFooter="false">
 		<semantic:content>
-			<Table id="table" class="sapUiResponsiveMargin" items="{ path: '/Orders', sorter: { path: 'ItemNumber', descending: false } }"
+			<Table id="table" fixedLayout="false" items="{ path: '/Orders', sorter: { path: 'ItemNumber', descending: false } }"
 				noDataText="{i18n>s1_table_no_text}" growing="true" growingScrollToLoad="true" itemPress=".onItemPress">
 				<headerToolbar>
 					<Toolbar>
 						<content>
 							<Title text="{i18n>s1_table_title}"/>
 							<ToolbarSpacer/>
-							<SearchField id="searchField" tooltip="{i18n>s1_searchfield_tooltip}" width="auto" search="onSearch"/>
+							<SearchField id="searchField" tooltip="{i18n>s1_searchfield_tooltip}" width="auto" search=".onSearch"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>
@@ -44,7 +44,8 @@
 							<ObjectIdentifier title="{ItemNumber}"/>
 							<ObjectNumber number="{Orderid}"/>
 							<Text text="{ShortText}"/>
-							<Text text="{OrderType}"/>
+							<ObjectStatus text="{OrderType}" icon="{path: 'OrderType', formatter: '.formatter.orderTypeIcon' }"
+								tooltip="{path: 'OrderType', formatter: '.formatter.orderTypeText' }"/>
 							<Text text="{MnWkCtr}"/>
 							<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd / MM / yyyy' } }"/>
 							<Text text="{Equipment}"/>

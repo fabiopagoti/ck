@@ -2,13 +2,19 @@
 sap.ui.define([
 	"pm/tlsup/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/routing/History",
-	"pm/tlsup/model/formatter"
+	"pm/tlsup/model/formatter",
+	"sap/m/MessageToast",
+	"sap/m/MessageBox",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
 ], function(
 	BaseController,
 	JSONModel,
-	History,
-	formatter
+	formatter,
+	MessageToast,
+	MessageBox,
+	Filter,
+	FilterOperator
 ) {
 	"use strict";
 
@@ -25,24 +31,13 @@ sap.ui.define([
 		 * @public
 		 */
 		onInit: function() {
-			// Model used to manipulate control states. The chosen values make sure,
-			// detail page is busy indication immediately so there is no break in
-			// between the busy indication for loading the view's meta data
-			var iOriginalBusyDelay,
-				oViewModel = new JSONModel({
-					busy: true,
-					delay: 0
-				});
-
-			this.getRouter().getRoute("notification").attachPatternMatched(this.onPatternMatched, this);
-
-			// Store original busy indicator delay, so it can be restored later on
-			iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
-			this.setModel(oViewModel, "objectView");
-			this.getOwnerComponent().getModel().metadataLoaded().then(function() {
-				// Restore original busy indicator delay for the object view
-				oViewModel.setProperty("/delay", iOriginalBusyDelay);
+			var oViewModel = new JSONModel({
+				busy: false
 			});
+
+			this.setModel(oViewModel, "view");
+			this.getRouter().getRoute("order").attachPatternMatched(this.onPatternMatched, this);
+
 		},
 
 		/* =========================================================== */
@@ -62,11 +57,72 @@ sap.ui.define([
 		onPatternMatched: function(oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
 			this.getModel().metadataLoaded().then(function() {
-				// var sObjectPath = this.getModel().createKey("Orders", {
-				// 	Orderid: sObjectId
-				// });
-				// this._bindView("/" + sObjectPath);
+				var sObjectPath = this.getModel().createKey("Orders", {
+					Orderid: oArguments.id
+				});
+				this._bindView("/" + sObjectPath);
 			}.bind(this));
+		},
+
+		onValueHelpRequestMaintainer: function(oEvent) {
+			var oInput = oEvent.getSource();
+			var sInputValue = oInput.getValue();
+
+			if (!this.oDialogMaintainer) {
+				this.oDialogMaintainer = sap.ui.xmlfragment(
+					"pm.tlsup.fragment.F1",
+					this
+				);
+				this.getView().addDependent(this.oDialogMaintainer);
+			}
+
+			// create a filter for the binding
+			this.oDialogMaintainer.getBinding("items").filter([new Filter(
+				"Name",
+				FilterOperator.Contains, sInputValue
+			)]);
+
+			// open value help dialog filtered by the input value
+			this.oDialogMaintainer.open(sInputValue);
+		},
+
+		onSearchMaintainer: function(oEvent) {
+			var sValue = oEvent.getParameter("value");
+			var oFilter = new Filter(
+				"Name",
+				FilterOperator.Contains, sValue
+			);
+			oEvent.getSource().getBinding("items").filter([oFilter]);
+		},
+
+		onConfirmMaintainer: function(oEvent) {
+			var oSelectedItem = oEvent.getParameter("selectedItem");
+			if (oSelectedItem) {
+				// this.getModel().
+			}
+			oEvent.getSource().getBinding("items").filter([]);
+		},
+
+		onCancelMaintainer: function(evt) {
+
+		},
+
+		onSave: function(oEvent) {
+			MessageBox.show(this.getText("s3_save_confirmation"), {
+				icon: MessageBox.Icon.QUESTION,
+				title: this.getText("s3_title"),
+				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+				onClose: function(sAction) {
+					switch (sAction) {
+						case "YES":
+							this._assign();
+							break;
+						default:
+					}
+				}
+			});
+
+			MessageToast.show(this.getText("s3_save_success", 123));
 		},
 
 		/* =========================================================== */
@@ -80,7 +136,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_bindView: function(sObjectPath) {
-			var oViewModel = this.getModel("objectView"),
+			var oViewModel = this.getModel("view"),
 				oDataModel = this.getModel();
 
 			this.getView().bindElement({
@@ -105,28 +161,26 @@ sap.ui.define([
 
 		_onBindingChange: function() {
 			var oView = this.getView(),
-				oViewModel = this.getModel("objectView"),
+				oViewModel = this.getModel("view"),
 				oElementBinding = oView.getElementBinding();
 
 			// No data for the binding
 			if (!oElementBinding.getBoundContext()) {
-				this.getRouter().getTargets().display("objectNotFound");
+				this.getRouter().navTo("objectNotFound");
 				return;
 			}
 
-			var oResourceBundle = this.getResourceBundle(),
-				oObject = oView.getBindingContext().getObject(),
-				sObjectId = oObject.Orderid,
-				sObjectName = oObject.ShortText;
-
 			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
-			oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("saveAsTileTitle", [sObjectName]));
-			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
-			oViewModel.setProperty("/shareSendEmailSubject",
-				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
-			oViewModel.setProperty("/shareSendEmailMessage",
-				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+		},
+
+		_assign: function() {
+			var oModel = this.getModel();
+			// var sPath = oModel.createKey("Orders", {
+			// 	Orderid: 
+			// }); 
+			// oModel.create()
+
 		}
 
 	});

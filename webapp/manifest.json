@@ -80,13 +80,12 @@
 				"settings": {
 					"metadataUrlParams": {
 						"sap-documentation": "heading"
-					}
+					},
+					"defaultBindingMode": "TwoWay"
 				}
 			}
 		},
-		"services": {
-			
-		},
+		"services": {},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",

@@ -33,9 +33,17 @@
 				<Property Name="Status" MaxLength="4" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Status"
 					sap:sortable="false" sap:updatable="false"/>
 			</EntityType>
+			<EntityType Name="Maintainer">
+				<Key>
+					<PropertyRef Name="Id"/>
+				</Key>
+				<Property Name="Id" Type="Edm.String" Nullable="false"></Property>
+				<Property Name="Name" Type="Edm.String" Nullable="false"></Property>
+			</EntityType>
 			<EntityContainer Name="ZPMF_TEAM_LEADER_SUP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
 				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="Orders" sap:content-version="1" sap:creatable="false" sap:deletable="false"
 					sap:pageable="false" sap:updatable="false"/>
+				<EntitySet Name="Maintainers" EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Maintainer"></EntitySet>
 			</EntityContainer>
 			<atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="self"
 				xmlns:atom="http://www.w3.org/2005/Atom"/>
