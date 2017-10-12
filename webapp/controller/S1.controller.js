@@ -25,7 +25,6 @@ sap.ui.define([
 				oTable = this.byId("table");
 
 			this._oTable = oTable;
-			this._oTableSearchState = [];
 
 			oViewModel = new JSONModel({
 				busy: false
@@ -46,7 +45,7 @@ sap.ui.define([
 			var oPressItem = oEvent.getParameters().listItem;
 			var oBindingContext = oPressItem.getBindingContext();
 			var oItemObject = oBindingContext.getObject();
-			if (oItemObject.Status !== this.STATUS_CLOSED) {
+			if (oItemObject.StatusCode === this.STATUS_CREATED) {
 				this._navigate(oItemObject);
 			}
 		},
@@ -59,7 +58,7 @@ sap.ui.define([
 				var sQuery = oEvent.getParameter("query");
 
 				if (sQuery && sQuery.length > 0) {
-					aFilters.push(new Filter("Orderid", FilterOperator.EQ, sQuery));
+					aFilters.push(new Filter("OrderNum", FilterOperator.EQ, sQuery));
 				}
 				this._oTable.getBinding("items").filter(aFilters, "Application");
 			}
@@ -89,7 +88,7 @@ sap.ui.define([
 				default:
 			}
 			this.getRouter().navTo(sRoute, {
-				id: oItem.Orderid
+				id: oItem.OrderNum
 			});
 		}
 

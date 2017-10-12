@@ -53,7 +53,7 @@ sap.ui.define([
 			var oArguments = oEvent.getParameter("arguments");
 			this.getModel().metadataLoaded().then(function() {
 				var sObjectPath = this.getModel().createKey("/Orders", {
-					Orderid: oArguments.id
+					OrderNum: oArguments.id
 				});
 				this._bindView(sObjectPath);
 			}.bind(this));
@@ -124,7 +124,7 @@ sap.ui.define([
 		_reject: function() {
 			var oModel = this.getModel();
 			var oBindingContext = this.getView().getBindingContext();
-			var sId = oBindingContext.getObject().Orderid;
+			var sId = oBindingContext.getObject().OrderNum;
 			var sPath = oModel.createKey("/Notifications", {
 				Id: sId
 			});

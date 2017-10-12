@@ -49,7 +49,7 @@
   },
   "mockpreview": {
     "mockUri": "/here/goes/your/serviceurl/",
-    "metadataFilePath": "localService/metadata.xml",
+    "metadataFilePath": "localService/mockdata/metadata.xml",
     "loadJSONFiles": true,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""

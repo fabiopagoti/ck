@@ -7,11 +7,11 @@
 				<form:content>
 					<core:Title text="{i18n>s3_form_title}"/>
 					<Label text="{i18n>s3_form_label_id}"/>
-					<Text text="{Orderid}"/>
+					<Text text="{OrderNum}"/>
 					<Label text="{i18n>s3_form_label_type}"/>
 					<Text text="{OrderType}"/>
 					<Label text="{i18n>s3_form_label_description}"/>
-					<Text text="{ShortText}"/>
+					<Text text="{Description}"/>
 					<Label text="{i18n>s3_form_label_equipment}"/>
 					<Text text="{Equipment}"/>
 					<Label text="{i18n>s3_form_label_equipment_name}"/>

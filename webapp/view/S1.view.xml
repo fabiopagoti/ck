@@ -1,12 +1,11 @@
-<mvc:View controllerName="pm.tlsup.controller.S1" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" controllerName="pm.tlsup.controller.S1">
 	<semantic:FullscreenPage title="{i18n>s1_title}" showFooter="false">
 		<semantic:content>
-			<Table id="table" fixedLayout="false" items="{ path: '/Orders', sorter: { path: 'ItemNumber', descending: false } }"
-				noDataText="{i18n>s1_table_no_text}" growing="true" growingScrollToLoad="true" itemPress=".onItemPress">
+			<Table id="table" fixedLayout="false" noDataText="{i18n>s1_table_no_text}" growing="true" growingScrollToLoad="true" items="{/Orders}"
+				itemPress=".onItemPress">
 				<headerToolbar>
 					<Toolbar>
 						<content>
-							<Title text="{i18n>s1_table_title}"/>
 							<ToolbarSpacer/>
 							<SearchField id="searchField" tooltip="{i18n>s1_searchfield_tooltip}" width="auto" search=".onSearch"/>
 						</content>
@@ -19,10 +18,7 @@
 					<Column>
 						<Text text="{i18n>term_order_id}"/>
 					</Column>
-					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<Text text="{i18n>term_order_description}"/>
-					</Column>
-					<Column >
+					<Column>
 						<Text text="{i18n>term_order_type}"/>
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
@@ -41,16 +37,15 @@
 				<items>
 					<ColumnListItem type="Navigation">
 						<cells>
-							<ObjectIdentifier title="{ItemNumber}"/>
-							<ObjectNumber number="{Orderid}"/>
-							<Text text="{ShortText}"/>
+							<ObjectIdentifier title="{Item}"/>
+							<ObjectIdentifier title="{OrderNum}" text="{Description}"/>
 							<ObjectStatus text="{OrderType}" icon="{path: 'OrderType', formatter: '.formatter.orderTypeIcon' }"
 								tooltip="{path: 'OrderType', formatter: '.formatter.orderTypeText' }"/>
-							<Text text="{MnWkCtr}"/>
-							<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd / MM / yyyy' } }"/>
-							<Text text="{Equipment}"/>
-							<ObjectStatus text="{path: 'Status', formatter: '.formatter.statusText'}" icon="{path: 'Status', formatter: '.formatter.statusIcon'}"
-								state="{path: 'Status', formatter: '.formatter.statusState'}"/>
+							<Text text="{NotifBy}"/>
+							<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
+							<ObjectIdentifier title="{Equipment}" text="{EquipmentDescription}"/>
+							<ObjectStatus text="{StatusLongDescription}" icon="{path: 'StatusCode', formatter: '.formatter.statusIcon'}"
+								state="{path: 'StatusCode', formatter: '.formatter.statusState'}"/>
 						</cells>
 					</ColumnListItem>
 				</items>

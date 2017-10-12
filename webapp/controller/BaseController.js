@@ -4,12 +4,13 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("pm.tlsup.controller.BaseController", {
-		/* Status */
-		STATUS_CREATED: "1",
-		STATUS_RELEASED: "2",
-		STATUS_CLOSED: "3",
 		
-
+		/* Status */
+		STATUS_CREATED: "I0001",
+		STATUS_RELEASED: "I0002",
+		STATUS_RELEASED_NOTIFICATION: "I0070",
+		STATUS_CLOSED: "I0046",
+		
 		/* Work order types */
 		WORK_ORDER_TYPE_EMERGENCY: "EWO",
 		WORK_ORDER_TYPE_CONVEYOR: "CWO",

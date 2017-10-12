@@ -31,29 +31,15 @@ sap.ui.define([], function() {
 			}
 		},
 
-		statusText: function(sStatus) {
-			switch (sStatus) {
-				case this.STATUS_CREATED:
-					return this.getText("STATUS_CREATED");
-				case this.STATUS_RELEASED:
-					return this.getText("STATUS_RELEASED");
-				case this.STATUS_CLOSED:
-					return this.getText("STATUS_CLOSED");
-				default:
-					return sStatus;
-			}
-		},
-
 		statusState: function(sStatus) {
 			switch (sStatus) {
 				case this.STATUS_CREATED:
-					return "Success";
-				case "2":
 					return "Warning";
-				case "3":
+				case this.STATUS_RELEASED:
+				case this.STATUS_RELEASED_NOTIFICATION:
+					return "Success";
+				case this.STATUS_CLOSED:
 					return "Error";
-				default:
-					return "None";
 			}
 		},
 
@@ -61,12 +47,11 @@ sap.ui.define([], function() {
 			switch (sStatus) {
 				case this.STATUS_CREATED:
 					return "sap-icon://create-form";
-				case "2":
+				case this.STATUS_RELEASED:
+				case this.STATUS_RELEASED_NOTIFICATION:
 					return "sap-icon://create";
-				case "3":
+				case this.STATUS_CLOSED:
 					return "sap-icon://stop";
-				default:
-					return "sap-icon://question-mark";
 			}
 		}
 	};
