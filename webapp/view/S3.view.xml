@@ -15,25 +15,27 @@
 					<Label text="{i18n>s3_form_label_equipment}"/>
 					<Text text="{Equipment}"/>
 					<Label text="{i18n>s3_form_label_equipment_name}"/>
-					<Text text="{EquipmentName}"/>
-					<Label text="{i18n>s3_form_label_superior}"/>
-					<Text text="{Superior}"/>
+					<Text text="{EquipmentDescription}"/>
+					<Label text="{i18n>s3_form_label_functional_location}"/>
+					<Text text="{FunctLoc} - {FunctLocDescription}"/>
 					<Label text="{i18n>s3_form_label_order_date}"/>
-					<Text text="{OrderDate}"/>
+					<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s3_form_label_notification_date}"/>
-					<Text text="{NotificationDate}"/>
+					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s3_form_label_associated_notification}"/>
-					<Text text="{Notification}"/>
+					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s3_form_label_assigned_to}"/>
-					<Text text="{AssignedTo}"/>
+					<Text text="{NotifBy}"/>
 					<Label text="{i18n>s3_form_label_maintainer}"/>
-					<Input value="{Maintainer}" valueHelpOnly="true" showValueHelp="true" type="Text" valueHelpRequest=".onValueHelpRequestMaintainer"
-						description="{= ${Maintainer}? ${MaintainerName} : null }"/>
+					<Input value="{CidNum}" valueHelpOnly="true" showValueHelp="true" type="Text" valueHelpRequest=".onValueHelpRequestMaintainer"
+						description="{= ${OpName}? ${OpName} : null }"/>
+					<Label text="{i18n>s3_form_label_operation_description}"/>
+					<Input value="{OperationDescription}"/>
 				</form:content>
 			</form:SimpleForm>
 		</semantic:content>
 		<semantic:mainAction>
-			<semantic:MainAction text="{i18n>s3_button_text_save}" press=".onSave"/>
+			<semantic:MainAction text="{i18n>s3_button_text_assign}" press=".onAssign"/>
 		</semantic:mainAction>
 	</semantic:FullscreenPage>
 </mvc:View>

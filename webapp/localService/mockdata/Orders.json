@@ -5,7 +5,7 @@
 	"CompCode": "CompCode 1",
 	"Plant": "Z110",
 	"Equipment": "PR99999",
-	"NotifNo": "",
+	"NotifNo": "400",
 	"Item": "0010",
 	"OrderNum": "5688901",
 	"Description": "work order description test",
@@ -16,7 +16,8 @@
 	"StatusLongDescription": "Created",
 	"FunctLoc": "IS99",
 	"FunctLocDescription": "ITTBA-PRD-A99-IS999 teste 18/9",
-	"NotifDate": ""
+	"NotifDate": "/Date(1507086000000)/",
+	"NotifBy": "Fabio Pagoti"
 }, {
 	"OrderType": "MWO",
 	"EnteredBy": "",

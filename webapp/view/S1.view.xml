@@ -13,25 +13,25 @@
 				</headerToolbar>
 				<columns>
 					<Column>
-						<Text text="{i18n>term_item}"/>
+						<Text text="{i18n>term_item}" wrapping="false"/>
 					</Column>
 					<Column>
-						<Text text="{i18n>term_order_id}"/>
+						<Text text="{i18n>term_order_id}" wrapping="false"/>
 					</Column>
 					<Column>
-						<Text text="{i18n>term_order_type}"/>
+						<Text text="{i18n>term_order_type}" wrapping="false"/>
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<Text text="{i18n>term_assigned_to}"/>
+						<Text text="{i18n>term_assigned_to}" wrapping="false"/>
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<Text text="{i18n>term_created_on}"/>
+						<Text text="{i18n>term_created_on}" wrapping="false"/>
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" popinDisplay="Inline">
-						<Text text="{i18n>term_equipment}"/>
+						<Text text="{i18n>term_equipment}" wrapping="false"/>
 					</Column>
 					<Column>
-						<Text text="{i18n>term_order_status}"/>
+						<Text text="{i18n>term_order_status}" wrapping="false"/>
 					</Column>
 				</columns>
 				<items>

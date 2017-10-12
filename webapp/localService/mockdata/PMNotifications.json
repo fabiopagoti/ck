@@ -1,0 +1,21 @@
+[{
+	"NotifNo": "400",
+	"NotifDescription": "Notification A",
+	"Equipment": "123",
+	"EquipmentDescription": "Equip A",
+	"FunctLoc": "IS99",
+	"FunctLocDescription": "Functional Location",
+	"NotifDate": "/Date(1507690800000)/",
+	"NotifBy": "Fabio Pagoti",
+	"WorkCenter": "PRD"
+}, {
+	"NotifNo": "600",
+	"NotifDescription": "Notification B",
+	"Equipment": "123",
+	"EquipmentDescription": "Equip A",
+	"FunctLoc": "IS99",
+	"FunctLocDescription": "Functional Location",
+	"NotifDate": "/Date(1506999600000)/",
+	"NotifBy": "Foo Bar",
+	"WorkCenter": "PRD"
+}]

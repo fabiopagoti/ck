@@ -1,15 +1,26 @@
-<core:FragmentDefinition
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core">
-	<SelectDialog
-		title="{i18n>f1_title}"
-		class="sapUiPopupWithPadding"
-		items="{/Maintainers}"
-		search="onSearchMaintainer"
-		confirm="onConfirmMaintainer"
-		cancel="onCancelMaintainer">
-		<StandardListItem
-			title="{Id}"
-			description="{Name}"  />
-	</SelectDialog>
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<!--<SelectDialog-->
+	<!--	title="{i18n>f1_title}"-->
+	<!--	class="sapUiPopupWithPadding"-->
+	<!--	items="{/Maintainers}"-->
+	<!--	search="onSearchMaintainer"-->
+	<!--	confirm="onConfirmMaintainer"-->
+	<!--	cancel="onCancelMaintainer">-->
+	<!--	<StandardListItem-->
+	<!--		title="{CidNum}"-->
+	<!--		description="{OpName}"  />-->
+	<!--</SelectDialog>-->
+	<Dialog title="{i18n>f1_title}">
+		<content>
+			<List mode="SingleSelectMaster" items="{/Maintainers}">
+				<items>
+					<StandardListItem title="{CidNum}" description="{OpName}"/>
+				</items>
+			</List>
+		</content>
+		<buttons>
+			<Button text="{i18n>f1_button_confirm}" press=".onConfirmMaintainer"/>
+			<Button text="{i18n>f1_button_cancel}" press=".onCancelMaintainer"/>
+		</buttons>
+	</Dialog>
 </core:FragmentDefinition>

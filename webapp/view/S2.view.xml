@@ -7,13 +7,13 @@
 				<form:content>
 					<core:Title text="{i18n>s2_form_title}"/>
 					<Label text="{i18n>s2_form_label_id}"/>
-					<Text/>
+					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s2_form_label_description}"/>
-					<Text/>
+					<Text text="{NotifDescription}"/>
 					<Label text="{i18n>s2_form_label_equipment}"/>
-					<Text/>
+					<Text text="{Equipment}"/>
 					<Label text="{i18n>s2_form_label_equipment_name}"/>
-					<Text/>
+					<Text text="{EquipmentDescription}"/>
 				</form:content>
 			</form:SimpleForm>
 		</semantic:content>

@@ -64,8 +64,6 @@ sap.ui.define([
 		},
 
 		onValueHelpRequestMaintainer: function(oEvent) {
-			var oInput = oEvent.getSource();
-			var sInputValue = oInput.getValue();
 
 			if (!this.oDialogMaintainer) {
 				this.oDialogMaintainer = sap.ui.xmlfragment(
@@ -76,40 +74,51 @@ sap.ui.define([
 			}
 
 			// create a filter for the binding
-			this.oDialogMaintainer.getBinding("items").filter([new Filter(
-				"Name",
-				FilterOperator.Contains, sInputValue
-			)]);
+			this.oListMaintainer = this.oDialogMaintainer.getContent()[0];
+
+			this.oListMaintainer
+				.getBinding("items")
+				.filter([
+					new Filter(
+						"IWorkCenter",
+						FilterOperator.EQ,
+						this.getView().getBindingContext().getObject().WorkCenter
+					)
+				]);
 
 			// open value help dialog filtered by the input value
-			this.oDialogMaintainer.open(sInputValue);
+			this.oDialogMaintainer.open();
 		},
 
-		onSearchMaintainer: function(oEvent) {
-			var sValue = oEvent.getParameter("value");
-			var oFilter = new Filter(
-				"Name",
-				FilterOperator.Contains, sValue
-			);
-			oEvent.getSource().getBinding("items").filter([oFilter]);
-		},
+		// onSearchMaintainer: function(oEvent) {
+		// 	// var sValue = oEvent.getParameter("value");
+		// 	var sValue = this.getView().getBindingContext().getObject().WorkCenter;
+		// 	var oFilter = new Filter(
+		// 		"IWorkCenter",
+		// 		FilterOperator.EQ,
+		// 		sValue
+		// 	);
+		// 	this.oListMaintainer.getBinding("items").filter([oFilter]);
+		// },
 
 		onConfirmMaintainer: function(oEvent) {
-			var oSelectedItem = oEvent.getParameter("selectedItem");
+			var oSelectedItem = this.oListMaintainer.getSelectedItem();
 			if (oSelectedItem) {
 				var oBindingContext = this.getView().getBindingContext();
 				var oModel = this.getModel();
-				oModel.setProperty("Maintainer", oSelectedItem.getBindingContext().getObject().Id, oBindingContext);
-				oModel.setProperty("MaintainerName", oSelectedItem.getBindingContext().getObject().Name, oBindingContext);
+				var oMaintainer = oSelectedItem.getBindingContext().getObject();
+				oModel.setProperty("CidNum", oMaintainer.CidNum, oBindingContext);
+				oModel.setProperty("OpName", oMaintainer.OpName, oBindingContext);
 			}
-			oEvent.getSource().getBinding("items").filter([]);
+			this.oListMaintainer.getBinding("items").filter([]);
+			this.oDialogMaintainer.close();
 		},
 
 		onCancelMaintainer: function(evt) {
-
+			this.oDialogMaintainer.close();
 		},
 
-		onSave: function(oEvent) {
+		onAssign: function(oEvent) {
 			MessageBox.show(this.getText("s3_save_confirmation"), {
 				icon: MessageBox.Icon.QUESTION,
 				title: this.getText("s3_title"),
@@ -178,10 +187,19 @@ sap.ui.define([
 		_assign: function() {
 			var oModel = this.getModel();
 			var oBindingContext = this.getView().getBindingContext();
-			var oData = oBindingContext.getObject();
+			var oOrder = oBindingContext.getObject();
+			var oData = {
+				OrderNum: oOrder.OrderNum,
+				OrderType: oOrder.OrderType,
+				Description: oOrder.OperationDescription,
+				Plant: oOrder.Plant,
+				Equipment: oOrder.Equipment,
+				CidNum: oOrder.CidNum
+			};
 			var sId = oData.OrderNum;
+			
 			var sPath = oModel.createKey("/Orders", {
-				OrderNu: sId
+				OrderNum: oData.OrderNum
 			});
 
 			function onSuccess(oData, oRespose) {
@@ -200,7 +218,8 @@ sap.ui.define([
 				error: onError.bind(this),
 				refreshAfterChange: true
 			};
-
+			
+			console.log(oData);
 			oModel.update(
 				sPath,
 				oData,

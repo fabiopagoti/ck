@@ -45,7 +45,8 @@ sap.ui.define([
 			var oPressItem = oEvent.getParameters().listItem;
 			var oBindingContext = oPressItem.getBindingContext();
 			var oItemObject = oBindingContext.getObject();
-			if (oItemObject.StatusCode === this.STATUS_CREATED) {
+			
+			if (oItemObject.StatusCode !== this.STATUS_CLOSED) {
 				this._navigate(oItemObject);
 			}
 		},

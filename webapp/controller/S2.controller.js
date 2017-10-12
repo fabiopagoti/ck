@@ -52,8 +52,8 @@ sap.ui.define([
 		onPatternMatched: function(oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
 			this.getModel().metadataLoaded().then(function() {
-				var sObjectPath = this.getModel().createKey("/Orders", {
-					OrderNum: oArguments.id
+				var sObjectPath = this.getModel().createKey("/PMNotifications", {
+					NotifNo: oArguments.id
 				});
 				this._bindView(sObjectPath);
 			}.bind(this));
@@ -61,6 +61,23 @@ sap.ui.define([
 
 		onReject: function(oEvent) {
 			MessageBox.show(this.getText("s2_reject_confirmation"), {
+				icon: MessageBox.Icon.WARNING,
+				title: this.getText("s2_title"),
+				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+				onClose: function(sAction) {
+					switch (sAction) {
+						case "YES":
+							this._reject();
+							break;
+						default:
+					}
+				}.bind(this)
+			});
+
+		},
+
+		onCreate: function(oEvent) {
+			MessageBox.show(this.getText("s2_create_confirmation"), {
 				icon: MessageBox.Icon.WARNING,
 				title: this.getText("s2_title"),
 				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
@@ -124,9 +141,40 @@ sap.ui.define([
 		_reject: function() {
 			var oModel = this.getModel();
 			var oBindingContext = this.getView().getBindingContext();
-			var sId = oBindingContext.getObject().OrderNum;
-			var sPath = oModel.createKey("/Notifications", {
-				Id: sId
+			var sId = oBindingContext.getObject().NotifNo;
+			var sPath = oModel.createKey("/PMNotifications", {
+				NotifNo: sId
+			});
+
+			function onSuccess(oData, oRespose) {
+				this.getRouter().navTo("list");
+				MessageToast.show(this.getText("s2_reject_success", sId), {
+					closeOnBrowserNavigation: false
+				});
+			}
+
+			function onError(err) {
+				MessageBox.error(this.getText("s2_reject_error"));
+			}
+
+			var oOptions = {
+				success: onSuccess.bind(this),
+				error: onError.bind(this),
+				refreshAfterChange: true
+			};
+
+			oModel.remove(
+				sPath,
+				oOptions
+			);
+		},
+
+		_create: function() {
+			var oModel = this.getModel();
+			var oBindingContext = this.getView().getBindingContext();
+			var sId = oBindingContext.getObject().NotifNo;
+			var sPath = oModel.createKey("/PMNotifications", {
+				NotifNo: sId
 			});
 
 			function onSuccess(oData, oRespose) {

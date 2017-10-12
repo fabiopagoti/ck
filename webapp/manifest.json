@@ -12,7 +12,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/here/goes/your/serviceurl/",
+				"uri": "/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -41,7 +41,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
 	},
 	"sap.ui5": {
 		"_version": "1.2.0",
@@ -81,7 +84,8 @@
 					"metadataUrlParams": {
 						"sap-documentation": "heading"
 					},
-					"defaultBindingMode": "TwoWay"
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "None"
 				}
 			}
 		},
@@ -94,27 +98,42 @@
 				"controlId": "root",
 				"controlAggregation": "pages",
 				"bypassed": {
-					"target": ["notFound"]
+					"target": [
+						"notFound"
+					]
 				},
 				"async": true
 			},
-			"routes": [{
-				"pattern": "",
-				"name": "list",
-				"target": ["list"]
-			}, {
-				"pattern": "Notification/{id}",
-				"name": "notification",
-				"target": ["notification"]
-			}, {
-				"pattern": "Orders/{id}",
-				"name": "order",
-				"target": ["order"]
-			}, {
-				"pattern": "Notification/{id}/createOrder",
-				"name": "order-create",
-				"target": ["order-create"]
-			}],
+			"routes": [
+				{
+					"pattern": "",
+					"name": "list",
+					"target": [
+						"list"
+					]
+				},
+				{
+					"pattern": "Notification/{id}",
+					"name": "notification",
+					"target": [
+						"notification"
+					]
+				},
+				{
+					"pattern": "Orders/{id}",
+					"name": "order",
+					"target": [
+						"order"
+					]
+				},
+				{
+					"pattern": "Notification/{id}/createOrder",
+					"name": "order-create",
+					"target": [
+						"order-create"
+					]
+				}
+			],
 			"targets": {
 				"list": {
 					"viewName": "S1",
@@ -146,5 +165,9 @@
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }

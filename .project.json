@@ -1,6 +1,7 @@
 {
   "projectType": [
     "sap.watt.uitools.ide.fiori",
+    "sap.watt.uitools.ide.web",
     "com.watt.common.builder.sapui5clientbuild"
   ],
   "build": {
@@ -12,7 +13,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true
+    "buildRequired": false,
+    "lastBuildDateTime": "Thu, 12 Oct 2017 09:09:53 GMT"
   },
   "dataBinding": {
     "/webapp/view/NotFound.view.xml": {
@@ -59,5 +61,10 @@
       "xml": "fioriXmlAnalysis",
       "js": "fioriJsValidator"
     }
+  },
+  "hcpdeploy": {
+    "account": "aa50dbace",
+    "name": "cyrius",
+    "lastVersionWeTriedToDeploy": "1.0.1"
   }
 }
