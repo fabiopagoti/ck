@@ -6,31 +6,52 @@
 				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
 				<form:content>
 					<core:Title text="{i18n>s4_form_title}"/>
-					<Label text="{i18n>s4_form_label_id}"/>
-					<Text text="{Orderid}"/>
 					<Label text="{i18n>s4_form_label_type}"/>
 					<Text text="{OrderType}"/>
 					<Label text="{i18n>s4_form_label_description}"/>
-					<Text text="{ShortText}"/>
+					<Text text="{NotifDescription}"/>
 					<Label text="{i18n>s4_form_label_equipment}"/>
 					<Text text="{Equipment}"/>
 					<Label text="{i18n>s4_form_label_equipment_name}"/>
-					<Text text="{EquipmentName}"/>
-					<Label text="{i18n>s4_form_label_superior}"/>
-					<Text text="{Superior}"/>
+					<Text text="{EquipmentDescription}"/>
+					<Label text="{i18n>s4_form_label_work_center}"/>
+					<Text text="{WorkCenter}"/>
 					<Label text="{i18n>s4_form_label_order_date}"/>
 					<Text text="{OrderDate}"/>
 					<Label text="{i18n>s4_form_label_notification_date}"/>
 					<Text text="{NotificationDate}"/>
 					<Label text="{i18n>s4_form_label_associated_notification}"/>
-					<Text text="{Notification}"/>
-					<Label text="{i18n>s4_form_label_assigned_to}"/>
-					<Text text="{AssignedTo}"/>
+					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s4_form_label_maintainer}"/>
-					<Input value="{Maintainer}" valueHelpOnly="true" showValueHelp="true" type="Text" valueHelpRequest=".onValueHelpRequestMaintainer"
-						description="{= ${Maintainer}? ${MaintainerName} : null }"/>
+					<Text text="{Maintainer}"/>
 				</form:content>
 			</form:SimpleForm>
+			<Table mode="Delete" fixedLayout="true" noDataText="" items="{model: 'materials', path: '/', templateSharable: true}" delete="onDeleteMaterial">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>s4_table_title}"/>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://add" tooltip="Add" type="Emphasized" press=".onAddMaterial"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>s4_table_column_material}" wrapping="false"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>s4_table_column_description}" wrapping="false"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Input value="{materials>material}" valueHelpOnly="false" valueLiveUpdate="true" showValueHelp="true" type="Text"
+								valueHelpRequest=".onValueHelpRequestMaterial"/>
+							<Text text="{= ${materials>description}? ${materials>description} : null }"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</semantic:content>
 		<semantic:mainAction>
 			<semantic:MainAction text="{i18n>s4_button_text_save}" press=".onSave"/>

@@ -1,6 +1,30 @@
 {
   "run": [
     {
+      "filePath": "/webapp/test/flpSandboxMockServer.html",
+      "previewMode": 0,
+      "dataMode": 0,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": ""
+        }
+      ],
+      "hashParameter": "",
+      "backendSystem": [],
+      "urlParametersNotNeeded": false,
+      "_metadata": {
+        "id": 4179286,
+        "runnerId": "webapprunner",
+        "displayName": "App in FLP Sandbox (Mock Server) - Frame",
+        "lastRunTimeStamp": 1508161069121
+      }
+    },
+    {
       "filePath": "/cyrius/webapp/test/flpSandboxMockServer.html",
       "previewMode": 1,
       "dataMode": 1,
@@ -25,31 +49,7 @@
         "id": 1978926,
         "runnerId": "webapprunner",
         "displayName": "App in FLP Sandbox (Mock Server)",
-        "lastRunTimeStamp": 1507768369619
-      }
-    },
-    {
-      "filePath": "/webapp/test/flpSandboxMockServer.html",
-      "previewMode": 0,
-      "dataMode": 0,
-      "workspace": "withoutWorkspace",
-      "ui5ActiveVersion": null,
-      "ui5VerSource": null,
-      "isDefaultVersion": 0,
-      "urlParameters": [
-        {
-          "paramName": "",
-          "paramValue": ""
-        }
-      ],
-      "hashParameter": "",
-      "backendSystem": [],
-      "urlParametersNotNeeded": false,
-      "_metadata": {
-        "id": 4179286,
-        "runnerId": "webapprunner",
-        "displayName": "App in FLP Sandbox (Mock Server) - Frame",
-        "lastRunTimeStamp": 1507553152561
+        "lastRunTimeStamp": 1508160754139
       }
     },
     {

@@ -31,12 +31,15 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			var oViewModel = new JSONModel({
-				busy: false
+				busy: false,
+				isMandatoryFieldsValid: false
 			});
 
 			this.setModel(oViewModel, "view");
 			this.getRouter().getRoute("order").attachPatternMatched(this.onPatternMatched, this);
 
+			// Register the view with the message manager
+			sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
 		},
 
 		/* =========================================================== */
@@ -55,12 +58,24 @@ sap.ui.define([
 		 */
 		onPatternMatched: function(oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
+			this.getModel().refresh(true);
 			this.getModel().metadataLoaded().then(function() {
 				var sObjectPath = this.getModel().createKey("Orders", {
 					OrderNum: oArguments.id
 				});
 				this._bindView("/" + sObjectPath);
 			}.bind(this));
+		},
+
+		onLiveChangeInput: function(oEvent) {
+			var oWorkOrder = this.getView().getBindingContext().getObject();
+			var sInputOperationDescriptionValue = oWorkOrder.OperationDescription;
+
+			if (sInputOperationDescriptionValue && sInputOperationDescriptionValue.length > 0) {
+				this.getModel("view").setProperty("/isMandatoryFieldsValid", true);
+			} else {
+				this.getModel("view").setProperty("/isMandatoryFieldsValid", false);
+			}
 		},
 
 		onValueHelpRequestMaintainer: function(oEvent) {
@@ -118,7 +133,7 @@ sap.ui.define([
 			this.oDialogMaintainer.close();
 		},
 
-		onAssign: function(oEvent) {
+		onSave: function(oEvent) {
 			MessageBox.show(this.getText("s3_save_confirmation"), {
 				icon: MessageBox.Icon.QUESTION,
 				title: this.getText("s3_title"),
@@ -126,7 +141,7 @@ sap.ui.define([
 				onClose: function(sAction) {
 					switch (sAction) {
 						case "YES":
-							this._assign();
+							this._save();
 							break;
 						default:
 					}
@@ -184,7 +199,7 @@ sap.ui.define([
 			oViewModel.setProperty("/busy", false);
 		},
 
-		_assign: function() {
+		_save: function() {
 			var oModel = this.getModel();
 			var oBindingContext = this.getView().getBindingContext();
 			var oOrder = oBindingContext.getObject();
@@ -197,7 +212,7 @@ sap.ui.define([
 				CidNum: oOrder.CidNum
 			};
 			var sId = oData.OrderNum;
-			
+
 			var sPath = oModel.createKey("/Orders", {
 				OrderNum: oData.OrderNum
 			});
@@ -218,8 +233,7 @@ sap.ui.define([
 				error: onError.bind(this),
 				refreshAfterChange: true
 			};
-			
-			console.log(oData);
+
 			oModel.update(
 				sPath,
 				oData,

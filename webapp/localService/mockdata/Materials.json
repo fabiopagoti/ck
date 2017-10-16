@@ -1,0 +1,81 @@
+[{
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 1",
+	"Description": "Description 1",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%201')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 2",
+	"Description": "Description 2",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%202')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 3",
+	"Description": "Description 3",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%203')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 4",
+	"Description": "Description 4",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%204')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 5",
+	"Description": "Description 5",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%205')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 6",
+	"Description": "Description 6",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%206')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 7",
+	"Description": "Description 7",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%207')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 8",
+	"Description": "Description 8",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%208')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 9",
+	"Description": "Description 9",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%209')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}, {
+	"IPlant": "Z110",
+	"MaterialNum": "MaterialNum 10",
+	"Description": "Description 10",
+	"__metadata": {
+		"uri": "Materials('MaterialNum%2010')",
+		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
+	}
+}]

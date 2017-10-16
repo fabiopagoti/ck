@@ -77,20 +77,7 @@ sap.ui.define([
 		},
 
 		onCreate: function(oEvent) {
-			MessageBox.show(this.getText("s2_create_confirmation"), {
-				icon: MessageBox.Icon.WARNING,
-				title: this.getText("s2_title"),
-				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-				onClose: function(sAction) {
-					switch (sAction) {
-						case "YES":
-							this._reject();
-							break;
-						default:
-					}
-				}.bind(this)
-			});
-
+			this._create();
 		},
 
 		/* =========================================================== */
@@ -170,34 +157,11 @@ sap.ui.define([
 		},
 
 		_create: function() {
-			var oModel = this.getModel();
 			var oBindingContext = this.getView().getBindingContext();
 			var sId = oBindingContext.getObject().NotifNo;
-			var sPath = oModel.createKey("/PMNotifications", {
-				NotifNo: sId
+			this.getRouter().navTo("order-create", {
+				id: sId
 			});
-
-			function onSuccess(oData, oRespose) {
-				this.getRouter().navTo("list");
-				MessageToast.show(this.getText("s2_reject_success", sId), {
-					closeOnBrowserNavigation: false
-				});
-			}
-
-			function onError(err) {
-				MessageBox.error(this.getText("s2_reject_error"));
-			}
-
-			var oOptions = {
-				success: onSuccess.bind(this),
-				error: onError.bind(this),
-				refreshAfterChange: true
-			};
-
-			oModel.remove(
-				sPath,
-				oOptions
-			);
 		}
 
 	});

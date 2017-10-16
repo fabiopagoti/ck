@@ -4,8 +4,17 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"pm/tlsup/model/formatter",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function(BaseController, JSONModel, History, formatter, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"sap/m/MessageToast"
+], function(
+	BaseController,
+	JSONModel,
+	History,
+	formatter,
+	Filter,
+	FilterOperator,
+	MessageToast
+) {
 	"use strict";
 
 	return BaseController.extend("pm.tlsup.controller.S1", {
@@ -30,12 +39,24 @@ sap.ui.define([
 				busy: false
 			});
 			this.setModel(oViewModel, "view");
+
+			this.getRouter().getRoute("list").attachPatternMatched(this.onPatternMatched, this);
 		},
 
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
-
+		
+		/**
+		 * Binds the view to the object path.
+		 * @function
+		 * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
+		 * @private
+		 */
+		onPatternMatched: function(oEvent) {
+			this.getModel().refresh(true);
+		},
+		
 		/**
 		 * Event handler when a table item gets pressed
 		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
@@ -45,9 +66,11 @@ sap.ui.define([
 			var oPressItem = oEvent.getParameters().listItem;
 			var oBindingContext = oPressItem.getBindingContext();
 			var oItemObject = oBindingContext.getObject();
-			
-			if (oItemObject.StatusCode !== this.STATUS_CLOSED) {
+
+			if (oItemObject.StatusCode === this.STATUS_CREATED) {
 				this._navigate(oItemObject);
+			} else {
+				MessageToast.show(this.getText("s1_cannot_assign", oItemObject.StatusLongDescription));
 			}
 		},
 

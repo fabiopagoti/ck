@@ -48,11 +48,6 @@
 	},
 	"sap.ui5": {
 		"_version": "1.2.0",
-		"rootView": {
-			"viewName": "pm.tlsup.view.S0",
-			"type": "XML",
-			"id": "app"
-		},
 		"dependencies": {
 			"minUI5Version": "1.36.0",
 			"libs": {
@@ -66,10 +61,6 @@
 					"minVersion": "1.36.0"
 				}
 			}
-		},
-		"contentDensities": {
-			"compact": false,
-			"cozy": false
 		},
 		"models": {
 			"i18n": {
@@ -89,7 +80,16 @@
 				}
 			}
 		},
-		"services": {},
+		"rootView": {
+			"viewName": "pm.tlsup.view.S0",
+			"type": "XML",
+			"id": "app"
+		},
+		"handleValidation": true,
+		"contentDensities": {
+			"compact": false,
+			"cozy": false
+		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",

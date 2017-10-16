@@ -33,9 +33,14 @@ sap.ui.define([
 			var oViewModel = new JSONModel({
 				busy: false
 			});
-
 			this.setModel(oViewModel, "view");
-			this.getRouter().getRoute("order").attachPatternMatched(this.onPatternMatched, this);
+			this._viewModel = oViewModel;
+
+			var oMaterialsModel = new JSONModel([]);
+			this.setModel(oMaterialsModel, "materials");
+			this._materialsModel = oMaterialsModel;
+
+			this.getRouter().getRoute("order-create").attachPatternMatched(this.onPatternMatched, this);
 
 		},
 
@@ -44,7 +49,9 @@ sap.ui.define([
 		/* =========================================================== */
 
 		onNavBack: function(oEvent) {
-			this.getRouter().navTo("list", false);
+			this.getRouter().navTo("notification",{
+				id: this.getView().getBindingContext().getObject().NotifNo                         
+			});
 		},
 
 		/**
@@ -56,57 +63,99 @@ sap.ui.define([
 		onPatternMatched: function(oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
 			this.getModel().metadataLoaded().then(function() {
-				var sObjectPath = this.getModel().createKey("Orders", {
-					Orderid: oArguments.id
+				var sObjectPath = this.getModel().createKey("/PMNotifications", {
+					NotifNo: oArguments.id
 				});
-				this._bindView("/" + sObjectPath);
+				this._bindView(sObjectPath);
 			}.bind(this));
 		},
 
-		onValueHelpRequestMaintainer: function(oEvent) {
-			var oInput = oEvent.getSource();
-			var sInputValue = oInput.getValue();
+		onValueHelpRequestMaterial: function(oEvent) {
+			this._inputMaterial = oEvent.getSource();
 
-			if (!this.oDialogMaintainer) {
-				this.oDialogMaintainer = sap.ui.xmlfragment(
-					"pm.tlsup.fragment.F1",
+			if (!this._oDialogMaterials) {
+				this._oDialogMaterials = sap.ui.xmlfragment(
+					"pm.tlsup.fragment.F2",
 					this
 				);
-				this.getView().addDependent(this.oDialogMaintainer);
+				this.getView().addDependent(this._oDialogMaterials);
 			}
 
-			// create a filter for the binding
-			this.oDialogMaintainer.getBinding("items").filter([new Filter(
-				"Name",
-				FilterOperator.Contains, sInputValue
-			)]);
+			this._oDialogMaterials
+				.getBinding("items")
+				.filter(
+					[new Filter(
+						"IPlant",
+						FilterOperator.EQ,
+						this.getView().getBindingContext().getObject().Plant
+					)]
+				);
 
-			// open value help dialog filtered by the input value
-			this.oDialogMaintainer.open(sInputValue);
+			this._oDialogMaterials.open();
 		},
 
-		onSearchMaintainer: function(oEvent) {
+		onSearchMaterial: function(oEvent) {
+			var sPlant = this.getView().getBindingContext().getObject().Plant;
+			var aFilters = [];
+			aFilters.push(new Filter(
+				"IPlant",
+				FilterOperator.EQ,
+				sPlant
+			));
+
 			var sValue = oEvent.getParameter("value");
-			var oFilter = new Filter(
-				"Name",
-				FilterOperator.Contains, sValue
-			);
-			oEvent.getSource().getBinding("items").filter([oFilter]);
+			if (sValue && sValue.length > 0) {
+				aFilters.push(new Filter(
+					"MaterialNum",
+					FilterOperator.EQ,
+					sValue
+				));
+			}
+			this.oListMaintainer.getBinding("items").filter(aFilters);
 		},
 
-		onConfirmMaintainer: function(oEvent) {
-			var oSelectedItem = oEvent.getParameter("selectedItem");
+		onConfirmMaterial: function(oEvent) {
+			var oSelectedItem = oEvent.getParameter("selectedContexts");
 			if (oSelectedItem) {
 				var oBindingContext = this.getView().getBindingContext();
 				var oModel = this.getModel();
-				oModel.setProperty("Maintainer", oSelectedItem.getBindingContext().getObject().Id, oBindingContext);
-				oModel.setProperty("MaintainerName", oSelectedItem.getBindingContext().getObject().Name, oBindingContext);
+				var oMaterial = oSelectedItem.getBindingContext().getObject();
+				oModel.setProperty("MaterialNum", oMaterial.MaterialNum, oBindingContext);
+				oModel.setProperty("Description", oMaterial.Description, oBindingContext);
 			}
-			oEvent.getSource().getBinding("items").filter([]);
+			this.oListMaintainer.getBinding("items").filter([]);
+			this._oDialogMaterials.close();
 		},
 
 		onCancelMaintainer: function(evt) {
+			this._oDialogMaterials.close();
+		},
+		onAddMaterial: function(oEvent) {
+			var aMaterials = this._materialsModel.getProperty("/");
+			aMaterials.push({
+				material: null
+			});
+			this._materialsModel.setProperty("/", aMaterials);
+		},
 
+		onDeleteMaterial: function(oEvent) {
+			var oParameters = oEvent.getParameters();
+			var oDeletedListItem = oParameters.listItem;
+			var iDeletedListItemIndex = -1;
+			var oDeletedBindingContext = oDeletedListItem.getBindingContext("materials").getObject();
+			var aMaterials = this._materialsModel.getProperty("/");
+
+			for (var i = 0; i < aMaterials.length; i++) {
+				if (oDeletedBindingContext === aMaterials[i]) {
+					iDeletedListItemIndex = i;
+				}
+			}
+
+			if (iDeletedListItemIndex > -1) {
+				aMaterials.splice(iDeletedListItemIndex, 1);
+			}
+
+			this._materialsModel.setProperty("/", aMaterials);
 		},
 
 		onSave: function(oEvent) {
@@ -146,10 +195,6 @@ sap.ui.define([
 					change: this._onBindingChange.bind(this),
 					dataRequested: function() {
 						oDataModel.metadataLoaded().then(function() {
-							// Busy indicator on view should only be set if metadata is loaded,
-							// otherwise there may be two busy indications next to each other on the
-							// screen. This happens because route matched handler already calls '_bindView'
-							// while metadata is loaded.
 							oViewModel.setProperty("/busy", true);
 						});
 					},
@@ -165,13 +210,11 @@ sap.ui.define([
 				oViewModel = this.getModel("view"),
 				oElementBinding = oView.getElementBinding();
 
-			// No data for the binding
 			if (!oElementBinding.getBoundContext()) {
 				this.getRouter().navTo("objectNotFound");
 				return;
 			}
 
-			// Everything went fine.
 			oViewModel.setProperty("/busy", false);
 		},
 
