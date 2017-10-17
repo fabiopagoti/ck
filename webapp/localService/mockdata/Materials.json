@@ -1,11 +1,12 @@
 [{
 	"IPlant": "Z110",
 	"MaterialNum": "100",
-	"Description": "Material 1",
+	"Description": "Material 100",
 	"__metadata": {
 		"uri": "Materials('MaterialNum%201')",
 		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
-	}
+	},
+	"StorageLoc": "12"
 }, {
 	"IPlant": "Z110",
 	"MaterialNum": "MaterialNum 2",
@@ -13,7 +14,8 @@
 	"__metadata": {
 		"uri": "Materials('MaterialNum%202')",
 		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
-	}
+	},
+	"StorageLoc": "12"
 }, {
 	"IPlant": "Z110",
 	"MaterialNum": "MaterialNum 3",
@@ -21,7 +23,8 @@
 	"__metadata": {
 		"uri": "Materials('MaterialNum%203')",
 		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
-	}
+	},
+	"StorageLoc": "13"
 }, {
 	"IPlant": "Z110",
 	"MaterialNum": "MaterialNum 4",
@@ -29,7 +32,8 @@
 	"__metadata": {
 		"uri": "Materials('MaterialNum%204')",
 		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
-	}
+	},
+	"StorageLoc": "13"
 }, {
 	"IPlant": "Z110",
 	"MaterialNum": "MaterialNum 5",
@@ -37,7 +41,8 @@
 	"__metadata": {
 		"uri": "Materials('MaterialNum%205')",
 		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
-	}
+	},
+	"StorageLoc": "14"
 }, {
 	"IPlant": "Z110",
 	"MaterialNum": "MaterialNum 6",
@@ -45,5 +50,6 @@
 	"__metadata": {
 		"uri": "Materials('MaterialNum%206')",
 		"type": "ZPMF_TEAM_LEADER_SUP_SRV.Material"
-	}
+	},
+	"StorageLoc": "14"
 }]

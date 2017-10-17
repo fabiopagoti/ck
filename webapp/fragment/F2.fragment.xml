@@ -1,13 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<SelectDialog
-		title="{i18n>f2_title}"
-		class="sapUiPopupWithPadding"
-		items="{ path: '/Materials' }"
-		search="onSearchMaterials"
-		confirm="onConfirmMaterials"
-		cancel="onCancelMaterials">
-		<StandardListItem
-			title="{MaterialNum}"
-			description="{Description}"  />
+	<SelectDialog title="{i18n>f2_title}" class="sapUiPopupWithPadding" items="{ path: '/Materials' }" search="onSearchMaterials"
+		confirm="onConfirmMaterials">
+		<StandardListItem title="{MaterialNum}" description="{Description}"/>
 	</SelectDialog>
 </core:FragmentDefinition>

@@ -9,7 +9,7 @@
 					<Label text="{i18n>s4_form_label_type}"/>
 					<Text text="MN"/>
 					<Label text="{i18n>s4_form_label_description}"/>
-					<Text text="{NotifDescription}"/>
+					<Input value="{OrderDescription}" maxLength="40" />
 					<Label text="{i18n>s4_form_label_equipment}"/>
 					<Text text="{Equipment}"/>
 					<Label text="{i18n>s4_form_label_equipment_name}"/>

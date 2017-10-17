@@ -122,13 +122,11 @@ sap.ui.define([
 				var oMaterial = oSelectedItem[0].getObject();
 				this._materialsModel.setProperty(`${sPath}/material`, oMaterial.MaterialNum);
 				this._materialsModel.setProperty(`${sPath}/description`, oMaterial.Description);
+				this._materialsModel.setProperty(`${sPath}/storageLocation`, oMaterial.StorageLoc);
 			}
 			this._oDialogMaterials.getBinding("items").filter([]);
 		},
 
-		onCancelMaterials: function(evt) {
-		},
-		
 		onAddMaterial: function(oEvent) {
 			var aMaterials = this._materialsModel.getProperty("/");
 			aMaterials.push({
@@ -158,14 +156,14 @@ sap.ui.define([
 		},
 
 		onSave: function(oEvent) {
-			MessageBox.show(this.getText("s3_save_confirmation"), {
+			MessageBox.show(this.getText("s4_save_confirmation"), {
 				icon: MessageBox.Icon.QUESTION,
-				title: this.getText("s3_title"),
+				title: this.getText("s4_title"),
 				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
 				onClose: function(sAction) {
 					switch (sAction) {
 						case "YES":
-							this._assign();
+							this._save();
 							break;
 						default:
 					}
@@ -217,24 +215,42 @@ sap.ui.define([
 			oViewModel.setProperty("/busy", false);
 		},
 
-		_assign: function() {
+		_save: function() {
 			var oModel = this.getModel();
 			var oBindingContext = this.getView().getBindingContext();
-			var oData = oBindingContext.getObject();
-			var sId = oData.Orderid;
-			var sPath = oModel.createKey("/Orders", {
-				Orderid: sId
-			});
+			var oNotification = oBindingContext.getObject();
+			
+			var oData = {
+				OrderType: "MWO",
+				Plant: oNotification.Plant,
+				WorkCenter: oNotification.WorkCenter,                   
+				NotifNo: oNotification.NotifNo,
+				OrderDescription: oNotification.OrderDescription,
+			};
+			
+			var aMaterialsFromModel = this._materialsModel.getData();
+			var aMaterialsAdjusted = [];
+			
+			for(var i = 0; i < aMaterialsFromModel.length; i++){
+				aMaterialsAdjusted.push({
+					Matnr: aMaterialsFromModel[i].material,
+					Quantity: aMaterialsFromModel[i].quantity,
+					StorageLoc: aMaterialsFromModel[i].storageLocation
+				});
+			}
+			oData.ToItems = aMaterialsAdjusted;
+			
+			var sPath = "/Orders";
 
 			function onSuccess(oData, oRespose) {
 				this.getRouter().navTo("list");
-				MessageToast.show(this.getText("s3_save_success", sId), {
+				MessageToast.show(this.getText("s4_save_success", oData.OrderNum), {
 					closeOnBrowserNavigation: false
 				});
 			}
 
 			function onError(err) {
-				MessageBox.error(this.getText("s3_save_error"));
+				MessageBox.error(this.getText("s4_save_error"));
 			}
 
 			var oOptions = {
@@ -243,13 +259,12 @@ sap.ui.define([
 				refreshAfterChange: true
 			};
 
-			oModel.update(
+			oModel.create(
 				sPath,
 				oData,
 				oOptions
 			);
 		}
-
 	});
 
 });

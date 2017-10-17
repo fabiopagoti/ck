@@ -13,6 +13,7 @@
 					sap:label="Material" sap:sortable="false" sap:updatable="false"/>
 				<Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
 					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="StorageLoc" Type="Edm.String" MaxLength="4" Nullable="true"></Property>
 			</EntityType>
 			<EntityType Name="Order" sap:content-version="1">
 				<Key>
