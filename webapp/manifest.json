@@ -72,12 +72,11 @@
 			"": {
 				"dataSource": "mainService",
 				"settings": {
-					"metadataUrlParams": {
-						"sap-documentation": "heading"
-					},
 					"defaultBindingMode": "TwoWay",
-					"defaultCountMode": "None"
-				}
+					"defaultCountMode": "None",
+					"defaultOperationMode": "Server"
+				},
+				"preload": false
 			}
 		},
 		"rootView": {
@@ -101,8 +100,7 @@
 					"target": [
 						"notFound"
 					]
-				},
-				"async": true
+				}
 			},
 			"routes": [
 				{

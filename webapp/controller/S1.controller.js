@@ -46,7 +46,7 @@ sap.ui.define([
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
-		
+
 		/**
 		 * Binds the view to the object path.
 		 * @function
@@ -54,9 +54,9 @@ sap.ui.define([
 		 * @private
 		 */
 		onPatternMatched: function(oEvent) {
-			this.getModel().refresh(true);
+			this._oTable.getBinding("items").filter([], "Application");
 		},
-		
+
 		/**
 		 * Event handler when a table item gets pressed
 		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
@@ -66,11 +66,14 @@ sap.ui.define([
 			var oPressItem = oEvent.getParameters().listItem;
 			var oBindingContext = oPressItem.getBindingContext();
 			var oItemObject = oBindingContext.getObject();
-
-			if (oItemObject.StatusCode === this.STATUS_CREATED) {
+			if (oItemObject.OrderType === "MN") { // Notification
 				this._navigate(oItemObject);
-			} else {
-				MessageToast.show(this.getText("s1_cannot_assign", oItemObject.StatusLongDescription));
+			} else { // Work Order
+				if (oItemObject.StatusCode === this.STATUS_CREATED) {
+					this._navigate(oItemObject);
+				} else {
+					MessageToast.show(this.getText("s1_cannot_assign", oItemObject.StatusLongDescription));
+				}
 			}
 		},
 

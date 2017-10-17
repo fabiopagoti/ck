@@ -5,7 +5,7 @@
 	"CompCode": "CompCode 1",
 	"Plant": "Z110",
 	"Equipment": "PR99999",
-	"NotifNo": "",
+	"NotifNo": "400",
 	"Item": "0010",
 	"OrderNum": "5688901",
 	"Description": "work order description test",
@@ -16,7 +16,8 @@
 	"StatusLongDescription": "Created",
 	"FunctLoc": "IS99",
 	"FunctLocDescription": "ITTBA-PRD-A99-IS999 teste 18/9",
-	"NotifDate": ""
+	"NotifDate": "/Date(1507086000000)/",
+	"NotifBy": "Fabio Pagoti"
 }, {
 	"OrderType": "MWO",
 	"EnteredBy": "",
@@ -38,7 +39,8 @@
 	"NotifDate": "/Date(1507518000000)/",
 	"NotifBy": "Foo Bar",
 	"CidNum": "00003463",
-	"MaintainerDescription": "BONANSEA ENRICO"
+	"MaintainerDescription": "BONANSEA ENRICO",
+	"MaintainerName": "Maintainer Fabio Pagoti"
 }, {
 	"OrderType": "CWO",
 	"EnteredBy": "",
@@ -57,7 +59,8 @@
 	"StatusLongDescription": "Closed",
 	"FunctLoc": "IS99",
 	"FunctLocDescription": "ITTBA-PRD-A99-IS999 teste 18/9",
-	"NotifDate": ""
+	"NotifDate": "",
+	"MaintainerName": "Maintainer Fabio Pagoti"
 }, {
 	"OrderType": "MN",
 	"EnteredBy": "Fabio Pagoti",
@@ -71,9 +74,9 @@
 	"Description": "description 4",
 	"EquipmentDescription": "Equipment 4",
 	"WorkCenter": "PRD",
-	"StatusCode": "I0070",
-	"StatusShortDescription": "In Process",
-	"StatusLongDescription": "In Process",
+	"StatusCode": "I0001",
+	"StatusShortDescription": "Created",
+	"StatusLongDescription": "Created",
 	"FunctLoc": "IS99",
 	"FunctLocDescription": "ITTBA-PRD-A99-IS999 teste 18/9",
 	"NotifDate": "/Date(1506913200000)/",

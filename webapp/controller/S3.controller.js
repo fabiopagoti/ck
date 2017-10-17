@@ -58,12 +58,12 @@ sap.ui.define([
 		 */
 		onPatternMatched: function(oEvent) {
 			var oArguments = oEvent.getParameter("arguments");
-			this.getModel().refresh(true);
 			this.getModel().metadataLoaded().then(function() {
-				var sObjectPath = this.getModel().createKey("Orders", {
-					OrderNum: oArguments.id
-				});
-				this._bindView("/" + sObjectPath);
+				// var sObjectPath = this.getModel().createKey("Orders", {
+				// 	OrderNum: oArguments.id
+				// });
+				var sObjectPath = `/OrderDetails('${oArguments.id}')`;
+				this._bindView(sObjectPath);
 			}.bind(this));
 		},
 
@@ -170,10 +170,6 @@ sap.ui.define([
 					change: this._onBindingChange.bind(this),
 					dataRequested: function() {
 						oDataModel.metadataLoaded().then(function() {
-							// Busy indicator on view should only be set if metadata is loaded,
-							// otherwise there may be two busy indications next to each other on the
-							// screen. This happens because route matched handler already calls '_bindView'
-							// while metadata is loaded.
 							oViewModel.setProperty("/busy", true);
 						});
 					},

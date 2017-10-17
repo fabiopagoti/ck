@@ -7,7 +7,7 @@
 				<form:content>
 					<core:Title text="{i18n>s4_form_title}"/>
 					<Label text="{i18n>s4_form_label_type}"/>
-					<Text text="{OrderType}"/>
+					<Text text="MN"/>
 					<Label text="{i18n>s4_form_label_description}"/>
 					<Text text="{NotifDescription}"/>
 					<Label text="{i18n>s4_form_label_equipment}"/>
@@ -16,14 +16,12 @@
 					<Text text="{EquipmentDescription}"/>
 					<Label text="{i18n>s4_form_label_work_center}"/>
 					<Text text="{WorkCenter}"/>
-					<Label text="{i18n>s4_form_label_order_date}"/>
-					<Text text="{OrderDate}"/>
 					<Label text="{i18n>s4_form_label_notification_date}"/>
-					<Text text="{NotificationDate}"/>
+					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s4_form_label_associated_notification}"/>
 					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s4_form_label_maintainer}"/>
-					<Text text="{Maintainer}"/>
+					<Text text="{NotifBy}"/>
 				</form:content>
 			</form:SimpleForm>
 			<Table mode="Delete" fixedLayout="true" noDataText="" items="{model: 'materials', path: '/', templateSharable: true}" delete="onDeleteMaterial">
@@ -41,6 +39,9 @@
 					<Column>
 						<Text text="{i18n>s4_table_column_description}" wrapping="false"/>
 					</Column>
+					<Column>
+						<Text text="{i18n>s4_table_column_quantity}" wrapping="false"/>
+					</Column>
 				</columns>
 				<items>
 					<ColumnListItem>
@@ -48,6 +49,7 @@
 							<Input value="{materials>material}" valueHelpOnly="false" valueLiveUpdate="true" showValueHelp="true" type="Text"
 								valueHelpRequest=".onValueHelpRequestMaterial"/>
 							<Text text="{= ${materials>description}? ${materials>description} : null }"/>
+							<Input value="{materials>quantity}" type="Number" />
 						</cells>
 					</ColumnListItem>
 				</items>

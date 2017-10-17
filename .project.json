@@ -14,7 +14,7 @@
       "test.html"
     ],
     "buildRequired": true,
-    "lastBuildDateTime": "Thu, 12 Oct 2017 09:09:53 GMT"
+    "lastBuildDateTime": "Tue, 17 Oct 2017 00:57:56 GMT"
   },
   "dataBinding": {
     "/webapp/view/NotFound.view.xml": {
@@ -50,7 +50,7 @@
     "resourceModelName": "i18n"
   },
   "mockpreview": {
-    "mockUri": "/here/goes/your/serviceurl/",
+    "mockUri": "/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV",
     "metadataFilePath": "localService/mockdata/metadata.xml",
     "loadJSONFiles": true,
     "loadCustomRequests": false,
@@ -65,6 +65,6 @@
   "hcpdeploy": {
     "account": "aa50dbace",
     "name": "cyrius",
-    "lastVersionWeTriedToDeploy": "1.0.1"
+    "lastVersionWeTriedToDeploy": "1.0.5"
   }
 }

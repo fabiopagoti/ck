@@ -7,7 +7,8 @@
 	"FunctLocDescription": "Functional Location",
 	"NotifDate": "/Date(1507690800000)/",
 	"NotifBy": "Fabio Pagoti",
-	"WorkCenter": "PRD"
+	"WorkCenter": "PRD",
+	"Plant": "Z110"
 }, {
 	"NotifNo": "600",
 	"NotifDescription": "Notification B",
@@ -17,5 +18,6 @@
 	"FunctLocDescription": "Functional Location",
 	"NotifDate": "/Date(1506999600000)/",
 	"NotifBy": "Foo Bar",
-	"WorkCenter": "PRD"
+	"WorkCenter": "PRD",
+	"Plant": "Z110"
 }]

@@ -39,7 +39,8 @@
 	"NotifDate": "/Date(1507518000000)/",
 	"NotifBy": "Foo Bar",
 	"CidNum": "00003463",
-	"MaintainerDescription": "BONANSEA ENRICO"
+	"MaintainerDescription": "BONANSEA ENRICO",
+	"MaintainerName": "Maintainer Fabio Pagoti"
 }, {
 	"OrderType": "CWO",
 	"EnteredBy": "",
@@ -58,7 +59,8 @@
 	"StatusLongDescription": "Closed",
 	"FunctLoc": "IS99",
 	"FunctLocDescription": "ITTBA-PRD-A99-IS999 teste 18/9",
-	"NotifDate": ""
+	"NotifDate": "",
+	"MaintainerName": "Maintainer Fabio Pagoti"
 }, {
 	"OrderType": "MN",
 	"EnteredBy": "Fabio Pagoti",

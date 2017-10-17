@@ -41,7 +41,7 @@
 							<ObjectIdentifier title="{OrderNum}" text="{Description}"/>
 							<ObjectStatus text="{OrderType}" icon="{path: 'OrderType', formatter: '.formatter.orderTypeIcon' }"
 								tooltip="{path: 'OrderType', formatter: '.formatter.orderTypeText' }"/>
-							<Text text="{NotifBy}"/>
+							<Text text="{MaintainerName}"/>
 							<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
 							<ObjectIdentifier title="{Equipment}" text="{EquipmentDescription}"/>
 							<ObjectStatus text="{StatusLongDescription}" icon="{path: 'StatusCode', formatter: '.formatter.statusIcon'}"

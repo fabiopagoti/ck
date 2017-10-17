@@ -60,6 +60,7 @@
 					sap:label="Personnel no." sap:sortable="false" sap:updatable="false"/>
 				<Property MaxLength="40" Name="MaintainerDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
 					sap:label="Opr. short text" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="MaintainerName" Type="Edm.String" Nullable="true"></Property>
 			</EntityType>
 			<EntityType Name="Maintainer" sap:content-version="1">
 				<Key>
@@ -78,6 +79,7 @@
 				</Key>
 				<Property MaxLength="12" Name="NotifNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
 					sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="Plant" Type="Edm.String" MaxLength="4" Nullable="false"></Property>
 				<Property MaxLength="40" Name="NotifDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
 					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
 				<Property MaxLength="18" Name="Equipment" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
@@ -99,6 +101,8 @@
 				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Material" Name="Materials" sap:content-version="1" sap:creatable="false"
 					sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
 				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="Orders" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+					sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="OrderDetails" sap:content-version="1" sap:creatable="false" sap:deletable="false"
 					sap:pageable="false" sap:updatable="false"/>
 				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Maintainer" Name="Maintainers" sap:content-version="1" sap:creatable="false"
 					sap:deletable="false" sap:pageable="false" sap:updatable="false"/>

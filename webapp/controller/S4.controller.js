@@ -94,7 +94,7 @@ sap.ui.define([
 			this._oDialogMaterials.open();
 		},
 
-		onSearchMaterial: function(oEvent) {
+		onSearchMaterials: function(oEvent) {
 			var sPlant = this.getView().getBindingContext().getObject().Plant;
 			var aFilters = [];
 			aFilters.push(new Filter(
@@ -111,25 +111,24 @@ sap.ui.define([
 					sValue
 				));
 			}
-			this.oListMaintainer.getBinding("items").filter(aFilters);
+			this._oDialogMaterials.getBinding("items").filter(aFilters);
 		},
 
-		onConfirmMaterial: function(oEvent) {
+		onConfirmMaterials: function(oEvent) {
 			var oSelectedItem = oEvent.getParameter("selectedContexts");
-			if (oSelectedItem) {
-				var oBindingContext = this.getView().getBindingContext();
-				var oModel = this.getModel();
-				var oMaterial = oSelectedItem.getBindingContext().getObject();
-				oModel.setProperty("MaterialNum", oMaterial.MaterialNum, oBindingContext);
-				oModel.setProperty("Description", oMaterial.Description, oBindingContext);
+			if (oSelectedItem[0]) {
+				var oBindingContext = this._inputMaterial.getBindingContext("materials");
+				var sPath = oBindingContext.getPath();
+				var oMaterial = oSelectedItem[0].getObject();
+				this._materialsModel.setProperty(`${sPath}/material`, oMaterial.MaterialNum);
+				this._materialsModel.setProperty(`${sPath}/description`, oMaterial.Description);
 			}
-			this.oListMaintainer.getBinding("items").filter([]);
-			this._oDialogMaterials.close();
+			this._oDialogMaterials.getBinding("items").filter([]);
 		},
 
-		onCancelMaintainer: function(evt) {
-			this._oDialogMaterials.close();
+		onCancelMaterials: function(evt) {
 		},
+		
 		onAddMaterial: function(oEvent) {
 			var aMaterials = this._materialsModel.getProperty("/");
 			aMaterials.push({
