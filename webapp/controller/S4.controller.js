@@ -225,7 +225,7 @@ sap.ui.define([
 				Plant: oNotification.Plant,
 				WorkCenter: oNotification.WorkCenter,                   
 				NotifNo: oNotification.NotifNo,
-				OrderDescription: oNotification.OrderDescription,
+				Description: oNotification.OrderDescription
 			};
 			
 			var aMaterialsFromModel = this._materialsModel.getData();
