@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="onConfirmAdvancedFilter"
+		resetFilters="onResetFilters">
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Status"
+				key="StatusCode"
+				multiSelect="true"
+				items="{ model: 'filters', path: '/status' }"
+				>
+				<items>
+					<ViewSettingsItem text="{filters>text}" key="{filters>key}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+				text="Type"
+				key="OrderType"
+				multiSelect="true"
+				items="{ model: 'filters', path: '/types' }"
+				>
+				<items>
+					<ViewSettingsItem text="{filters>text}" key="{filters>key}" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

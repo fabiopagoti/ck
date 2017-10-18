@@ -53,6 +53,17 @@ sap.ui.define([], function() {
 				case this.STATUS_CLOSED:
 					return "sap-icon://stop";
 			}
+		},
+
+		today: function(svalue) {
+			var d = new Date();
+
+			function pad(s) {
+				return (s < 10) ? '0' + s : s;
+			}
+			
+			return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/');
+
 		}
 	};
 

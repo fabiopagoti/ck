@@ -223,7 +223,7 @@ sap.ui.define([
 			var oData = {
 				OrderType: "MWO",
 				Plant: oNotification.Plant,
-				WorkCenter: oNotification.WorkCenter,                   
+				WorkCenter: this.byId("work-center").getValue(),                   
 				NotifNo: oNotification.NotifNo,
 				Description: oNotification.OrderDescription
 			};

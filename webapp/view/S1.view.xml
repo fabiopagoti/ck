@@ -8,6 +8,7 @@
 						<content>
 							<ToolbarSpacer/>
 							<SearchField id="searchField" tooltip="{i18n>s1_searchfield_tooltip}" width="auto" search=".onSearch"/>
+							<Button icon="sap-icon://filter" tooltip="Filter" press=".onFilter"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>

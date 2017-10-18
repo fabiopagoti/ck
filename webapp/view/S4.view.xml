@@ -5,9 +5,10 @@
 			<form:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="4" emptySpanL="4"
 				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
 				<form:content>
-					<core:Title text="{i18n>s4_form_title}"/>
+					<Label text="{i18n>s4_form_label_associated_notification}"/>
+					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s4_form_label_type}"/>
-					<Text text="MN"/>
+					<Text text="MWO" />
 					<Label text="{i18n>s4_form_label_description}"/>
 					<Input value="{OrderDescription}" maxLength="40" />
 					<Label text="{i18n>s4_form_label_equipment}"/>
@@ -15,12 +16,12 @@
 					<Label text="{i18n>s4_form_label_equipment_name}"/>
 					<Text text="{EquipmentDescription}"/>
 					<Label text="{i18n>s4_form_label_work_center}"/>
-					<Text text="{WorkCenter}"/>
+					<Input id="work-center" value="105200" maxLength="8" />
+					<Label text="{i18n>s4_form_label_order_date}"/>
+					<Text text="{path: 'WorkOrderDate', formatter: '.formatter.today'}"/>
 					<Label text="{i18n>s4_form_label_notification_date}"/>
 					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
-					<Label text="{i18n>s4_form_label_associated_notification}"/>
-					<Text text="{NotifNo}"/>
-					<Label text="{i18n>s4_form_label_maintainer}"/>
+					<Label text="{i18n>s4_form_label_notification_author}"/>
 					<Text text="{NotifBy}"/>
 				</form:content>
 			</form:SimpleForm>

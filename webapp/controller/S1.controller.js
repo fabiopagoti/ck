@@ -40,6 +40,34 @@ sap.ui.define([
 			});
 			this.setModel(oViewModel, "view");
 
+			var oFilterModel = new JSONModel({
+				status: [{
+					key: this.STATUS_CREATED,
+					text: 'WO Created'
+				}, {
+					key: this.STATUS_RELEASED,
+					text: 'WO Released'
+				}, {
+					key: this.STATUS_RELEASED_NOTIFICATION,
+					text: 'Notif In Progress'
+				}],
+				types: [{
+					key: this.WORK_ORDER_TYPE_EMERGENCY,
+					text: this.getText("WORK_ORDER_TYPE_EMERGENCY")
+				}, {
+					key: this.WORK_ORDER_TYPE_CONVEYOR,
+					text: this.getText("WORK_ORDER_TYPE_CONVEYOR")
+				}, {
+					key: this.WORK_ORDER_TYPE_MAINTENANCE,
+					text: this.getText("WORK_ORDER_TYPE_MAINTENANCE")
+				}, {
+					key: this.NOTIFICATION_TYPE_MAINTENANCE,
+					text: this.getText("NOTIFICATION_TYPE_MAINTENANCE")
+				}]
+
+			});
+			this.setModel(oFilterModel, "filters");
+
 			this.getRouter().getRoute("list").attachPatternMatched(this.onPatternMatched, this);
 		},
 
@@ -90,6 +118,35 @@ sap.ui.define([
 				this._oTable.getBinding("items").filter(aFilters, "Application");
 			}
 
+		},
+
+		onFilter: function(oEvent) {
+			if (!this._oDialogFilter) {
+				this._oDialogFilter = sap.ui.xmlfragment("pm.tlsup.fragment.F3", this);
+				this.getView().addDependent(this._oDialogFilter);
+			}
+			this._oDialogFilter.open();
+		},
+
+		onConfirmAdvancedFilter: function(oEvent) {
+			var aFilters = [];
+			var oParameters = oEvent.getParameters();
+			var aFilterItems = oParameters.filterItems;
+			var oCurrentFilterItem;
+			var sPath;
+			var sValue;
+			for (var i = 0; i < aFilterItems.length; i++) {
+				oCurrentFilterItem = aFilterItems[i];
+				sPath = oCurrentFilterItem.getParent().getKey();
+				sValue = oCurrentFilterItem.getKey();
+				aFilters.push(new Filter(sPath, FilterOperator.EQ, sValue));
+			}
+
+			this._oTable.getBinding("items").filter(aFilters, "Application");
+		},
+
+		onResetFilters: function(oEvent) {
+			this._oTable.getBinding("items").filter([], "Application");
 		},
 
 		/* =========================================================== */
