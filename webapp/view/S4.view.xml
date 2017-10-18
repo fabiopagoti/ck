@@ -17,6 +17,8 @@
 					<Text text="{EquipmentDescription}"/>
 					<Label text="{i18n>s4_form_label_work_center}"/>
 					<Input id="work-center" value="105200" maxLength="8" />
+					<Label text="{i18n>s4_form_label_functional_location}"/>
+					<Text text="{FunctLoc} - {FunctLocDescription}"/>
 					<Label text="{i18n>s4_form_label_order_date}"/>
 					<Text text="{path: 'WorkOrderDate', formatter: '.formatter.today'}"/>
 					<Label text="{i18n>s4_form_label_notification_date}"/>
