@@ -100,7 +100,7 @@ sap.ui.define([
 				if (oItemObject.StatusCode === this.STATUS_CREATED) {
 					this._navigate(oItemObject);
 				} else {
-					MessageToast.show(this.getText("s1_cannot_assign", oItemObject.StatusLongDescription));
+					MessageToast.show(this.getText("s1_cannot_assign"));
 				}
 			}
 		},
