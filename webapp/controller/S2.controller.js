@@ -27,7 +27,10 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			var oViewModel = new JSONModel({
-				busy: false
+				busy: false,
+				reject: {
+					reason: ""
+				}
 			});
 
 			this.setModel(oViewModel, "view");
@@ -60,20 +63,25 @@ sap.ui.define([
 		},
 
 		onReject: function(oEvent) {
-			MessageBox.show(this.getText("s2_reject_confirmation"), {
-				icon: MessageBox.Icon.WARNING,
-				title: this.getText("s2_title"),
-				actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-				onClose: function(sAction) {
-					switch (sAction) {
-						case "YES":
-							this._reject();
-							break;
-						default:
-					}
-				}.bind(this)
-			});
+			
+			if (!this.oDialogReason) {
+				this.oDialogReason = sap.ui.xmlfragment(
+					"pm.tlsup.fragment.F4",
+					this
+				);
+				this.getView().addDependent(this.oDialogReason);
+			}
 
+			this.oDialogReason.open();
+		},
+		
+		onConfirmReject: function(oEvent){
+			this._reject();
+			this.oDialogReason.close();
+		},
+		
+		onCancelReject: function(oEvent){
+			this.oDialogReason.close();
 		},
 
 		onCreate: function(oEvent) {

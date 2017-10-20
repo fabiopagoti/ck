@@ -14,7 +14,7 @@
       "test.html"
     ],
     "buildRequired": true,
-    "lastBuildDateTime": "Wed, 18 Oct 2017 02:54:06 GMT"
+    "lastBuildDateTime": "Wed, 18 Oct 2017 03:13:27 GMT"
   },
   "dataBinding": {
     "/webapp/view/NotFound.view.xml": {
@@ -65,6 +65,6 @@
   "hcpdeploy": {
     "account": "aa50dbace",
     "name": "cyrius",
-    "lastVersionWeTriedToDeploy": "1.0.9"
+    "lastVersionWeTriedToDeploy": "1.0.10"
   }
 }

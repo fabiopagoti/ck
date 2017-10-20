@@ -27,8 +27,12 @@
 					<Label text="{i18n>s3_form_label_assigned_to}"/>
 					<Text text="{NotifBy}"/>
 					<Label text="{i18n>s3_form_label_maintainer}"/>
-					<Input value="{CidNum}" valueHelpOnly="true" valueLiveUpdate="true" showValueHelp="true" type="Text"
-						valueHelpRequest=".onValueHelpRequestMaintainer" description="{= ${OpName}? ${OpName} : null }" liveChange=".onLiveChangeInput"/>
+					<Input value="{= ${OpName}? ${OpName} : null }" valueHelpOnly="true" valueLiveUpdate="true" showValueHelp="true" type="Text"
+						valueHelpRequest=".onValueHelpRequestMaintainer" liveChange=".onLiveChangeInput">
+						<customData>
+							<core:CustomData key="cidnum" value="{CidNum}" />
+						</customData>
+					</Input>
 					<Label text="{i18n>s3_form_label_operation_description}" required="true"/>
 					<Input value="{path: 'OperationDescription', type: 'sap.ui.model.odata.type.String', formatOptions: {nullable: false} }"
 						valueLiveUpdate="true" liveChange=".onLiveChangeInput"/>

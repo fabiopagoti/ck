@@ -1,20 +1,13 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<!--<SelectDialog-->
-	<!--	title="{i18n>f1_title}"-->
-	<!--	class="sapUiPopupWithPadding"-->
-	<!--	items="{/Maintainers}"-->
-	<!--	search="onSearchMaintainer"-->
-	<!--	confirm="onConfirmMaintainer"-->
-	<!--	cancel="onCancelMaintainer">-->
-	<!--	<StandardListItem-->
-	<!--		title="{CidNum}"-->
-	<!--		description="{OpName}"  />-->
-	<!--</SelectDialog>-->
 	<Dialog title="{i18n>f1_title}">
 		<content>
 			<List mode="SingleSelectMaster" items="{/Maintainers}">
 				<items>
-					<StandardListItem title="{CidNum}" description="{OpName}"/>
+					<StandardListItem title="{OpName}">
+						<customData>
+							<core:CustomData key="cidnum" value="{CidNum}" />
+						</customData>
+					</StandardListItem>
 				</items>
 			</List>
 		</content>
