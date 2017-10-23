@@ -163,6 +163,8 @@ sap.ui.define([
 		},
 
 		onResetFilters: function(oEvent) {
+			this._oFilterModel.setProperty("/enterDate/value1", null);
+			this._oFilterModel.setProperty("/enterDate/value2", null);
 			this._oTable.getBinding("items").filter([], "Application");
 		},
 

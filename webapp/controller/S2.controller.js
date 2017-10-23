@@ -34,6 +34,7 @@ sap.ui.define([
 			});
 
 			this.setModel(oViewModel, "view");
+			this._oViewModel = oViewModel;
 			this.getRouter().getRoute("notification").attachPatternMatched(this.onPatternMatched, this);
 
 		},
@@ -140,7 +141,13 @@ sap.ui.define([
 			var sPath = oModel.createKey("/PMNotifications", {
 				NotifNo: sId
 			});
-
+			var sReason = this._oViewModel.getProperty("/reject/reason");
+			
+			var oData = {
+				NotifNo: sId,
+				LongDescription: sReason
+			};
+			
 			function onSuccess(oData, oRespose) {
 				this.getRouter().navTo("list");
 				MessageToast.show(this.getText("s2_reject_success", sId), {
@@ -158,8 +165,9 @@ sap.ui.define([
 				refreshAfterChange: true
 			};
 
-			oModel.remove(
+			oModel.update(
 				sPath,
+				oData,
 				oOptions
 			);
 		},
