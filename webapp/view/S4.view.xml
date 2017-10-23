@@ -20,9 +20,9 @@
 					<Label text="{i18n>s4_form_label_functional_location}"/>
 					<Text text="{FunctLoc} - {FunctLocDescription}"/>
 					<Label text="{i18n>s4_form_label_order_date}"/>
-					<DatePicker displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" placeholder="dd/mm/yyyy" value="{path: 'OrderDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
+					<DatePicker displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" placeholder="dd/mm/yyyy" value="{path: 'OrderDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s4_form_label_notification_date}"/>
-					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
+					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s4_form_label_notification_author}"/>
 					<Text text="{NotifBy}"/>
 				</form:content>

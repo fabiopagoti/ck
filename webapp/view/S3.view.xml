@@ -19,9 +19,9 @@
 					<Label text="{i18n>s3_form_label_functional_location}"/>
 					<Text text="{FunctLoc} - {FunctLocDescription}"/>
 					<Label text="{i18n>s3_form_label_order_date}"/>
-					<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
+					<Text text="{path: 'EnterDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s3_form_label_notification_date}"/>
-					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
+					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { UTC: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s3_form_label_associated_notification}"/>
 					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s3_form_label_assigned_to}"/>
