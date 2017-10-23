@@ -1,119 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
-	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
 	<edmx:DataServices m:DataServiceVersion="2.0">
 		<Schema Namespace="ZPMF_TEAM_LEADER_SUP_SRV" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityType Name="Material" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="MaterialNum"/>
 				</Key>
-				<Property MaxLength="4" Name="IPlant" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Plant"
-					sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="18" Name="MaterialNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Material" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property Name="StorageLoc" Type="Edm.String" MaxLength="4" Nullable="true"></Property>
-			</EntityType>
-			<EntityType Name="Order" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="OrderNum"/>
-				</Key>
-				<Property MaxLength="12" Name="OrderNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order"
-					sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="4" Name="OrderType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Order Type" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="4" Name="Item" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Order Item Number" sap:sortable="false" sap:updatable="false"/>
-				<Property Name="EnterDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
-					sap:label="Created on" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="12" Name="EnteredBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Entered by" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="4" Name="CompCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Company Code" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Plant"
-					sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="18" Name="Equipment" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="EquipmentDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="12" Name="NotifNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Main WorkCtr" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="5" Name="StatusCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="System status" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="4" Name="StatusShortDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Status" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="30" Name="StatusLongDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Status" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="30" Name="FunctLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Functional loc." sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="FunctLocDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property Name="NotifDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
-					sap:label="Notif.date" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="12" Name="NotifBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Reported by" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="8" Name="CidNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Personnel no." sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="MaintainerDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Opr. short text" sap:sortable="false" sap:updatable="false"/>
-				<Property Name="MaintainerName" Type="Edm.String" Nullable="true"></Property>
-			</EntityType>
-			<EntityType Name="Maintainer" sap:content-version="1">
-				<Key>
-					<PropertyRef Name="CidNum"/>
-				</Key>
-				<Property MaxLength="8" Name="IWorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Work center" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="8" Name="CidNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Personnel no." sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="OpName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Empl./Appl.Name" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="IPlant" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Plant" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="StorageLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Prod.stor.loc." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="18" Name="MaterialNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Material" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
 			</EntityType>
 			<EntityType Name="PMNotification" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="NotifNo"/>
 				</Key>
-				<Property MaxLength="12" Name="NotifNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
-				<Property Name="Plant" Type="Edm.String" MaxLength="4" Nullable="false"></Property>
-				<Property MaxLength="40" Name="NotifDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="18" Name="Equipment" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="EquipmentDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="30" Name="FunctLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Functional loc." sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="40" Name="FunctLocDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Description" sap:sortable="false" sap:updatable="false"/>
-				<Property Name="NotifDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
-					sap:label="Notif.date" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="12" Name="NotifBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Reported by" sap:sortable="false" sap:updatable="false"/>
-				<Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
-					sap:label="Work Center" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="NotifNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="132" Name="LongDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Planning plant" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="NotifDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="18" Name="Equipment" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="EquipmentDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="FunctLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Functional loc." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="FunctLocDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="NotifDate" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false" sap:label="Notif.date" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="NotifBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Reported by" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Main WorkCtr" sap:sortable="false" sap:updatable="false"/>
 			</EntityType>
+			<EntityType Name="Order" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="OrderNum"/>
+				</Key>
+				<Property MaxLength="12" Name="OrderNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="MaintainerName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Empl./Appl.Name" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="OrderType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order Type" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="Item" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order Item Number" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="EnterDate" Precision="8" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false" sap:label="Created on" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="EnteredBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Entered by" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="CompCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Company Code" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Plant" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="18" Name="Equipment" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="EquipmentDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="NotifNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Main WorkCtr" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="5" Name="StatusCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="System status" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="StatusShortDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Status" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="StatusLongDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Status" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="FunctLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Functional loc." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="FunctLocDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="NotifDate" Precision="8" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false" sap:label="Notif.date" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="NotifBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Reported by" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="8" Name="CidNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Personnel no." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="MaintainerDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Opr. short text" sap:sortable="false" sap:updatable="false"/>
+				<NavigationProperty FromRole="FromRole_OrderToItem" Name="ToItems" Relationship="ZPMF_TEAM_LEADER_SUP_SRV.OrderToItem" ToRole="ToRole_OrderToItem"/>
+			</EntityType>
+			<EntityType Name="Maintainer" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="CidNum"/>
+				</Key>
+				<Property MaxLength="8" Name="IWorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Work center" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="8" Name="CidNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Personnel no." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="OpName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Empl./Appl.Name" sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="OrderItem" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="OrderNum"/>
+					<PropertyRef Name="Item"/>
+					<PropertyRef Name="Matnr"/>
+				</Key>
+				<Property MaxLength="10" Name="Quantity" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="OrderNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="StorageLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Prod.stor.loc." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="Item" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order Item Number" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="18" Name="Matnr" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Material" sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="OrderDetail" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="OrderNum"/>
+				</Key>
+				<Property MaxLength="12" Name="OrderNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="OrderType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Order Type" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="EnterDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false" sap:label="Created on" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="EnteredBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Entered by" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Plant" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="18" Name="Equipment" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="EquipmentDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="NotifNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Notification" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Main WorkCtr" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="30" Name="FunctLoc" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Functional loc." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="FunctLocDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+				<Property Name="NotifDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false" sap:label="Notif.date" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="12" Name="NotifBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Reported by" sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="Equipment" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="EquipmentId"/>
+				</Key>
+				<Property MaxLength="18" Name="EquipmentId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Equipment" sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="EquipmentDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="MaintainerFilter" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="CidNum"/>
+				</Key>
+				<Property MaxLength="8" Name="CidNum" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Personnel no." sap:sortable="false" sap:updatable="false"/>
+				<Property MaxLength="40" Name="OpName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Empl./Appl.Name" sap:sortable="false" sap:updatable="false"/>
+			</EntityType>
+			<Association Name="OrderToItem" sap:content-version="1">
+				<End Multiplicity="1" Role="FromRole_OrderToItem" Type="ZPMF_TEAM_LEADER_SUP_SRV.Order"/>
+				<End Multiplicity="*" Role="ToRole_OrderToItem" Type="ZPMF_TEAM_LEADER_SUP_SRV.OrderItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_OrderToItem">
+						<PropertyRef Name="OrderNum"/>
+					</Principal>
+					<Dependent Role="ToRole_OrderToItem">
+						<PropertyRef Name="OrderNum"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
 			<EntityContainer Name="ZPMF_TEAM_LEADER_SUP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Material" Name="Materials" sap:content-version="1" sap:creatable="false"
-					sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
-				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="Orders" sap:content-version="1" sap:creatable="false" sap:deletable="false"
-					sap:pageable="false" sap:updatable="false"/>
-				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="OrderDetails" sap:content-version="1" sap:creatable="false" sap:deletable="false"
-					sap:pageable="false" sap:updatable="false"/>
-				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Maintainer" Name="Maintainers" sap:content-version="1" sap:creatable="false"
-					sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
-				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.PMNotification" Name="PMNotifications" sap:content-version="1" sap:creatable="false"
-					sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Material" Name="Materials" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.PMNotification" Name="PMNotifications" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Order" Name="Orders" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Maintainer" Name="Maintainers" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.OrderItem" Name="OrderItems" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.OrderDetail" Name="OrderDetails" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.Equipment" Name="Equipments" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<EntitySet EntityType="ZPMF_TEAM_LEADER_SUP_SRV.MaintainerFilter" Name="MaintainersFilter" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<AssociationSet Association="ZPMF_TEAM_LEADER_SUP_SRV.OrderToItem" Name="OrdersToItems" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false">
+					<End EntitySet="Orders" Role="FromRole_OrderToItem"/>
+					<End EntitySet="OrderItems" Role="ToRole_OrderToItem"/>
+				</AssociationSet>
 			</EntityContainer>
-			<atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="self"
-				xmlns:atom="http://www.w3.org/2005/Atom"/>
-			<atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="latest-version"
-				xmlns:atom="http://www.w3.org/2005/Atom"/>
+			<atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/>
+			<atom:link href="http://USSFA1MTNWGS1.global.ittcorp.net:8000/sap/opu/odata/sap/ZPMF_TEAM_LEADER_SUP_SRV/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

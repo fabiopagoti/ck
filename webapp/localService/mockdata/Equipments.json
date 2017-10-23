@@ -1,0 +1,10 @@
+[{
+	"EquipmentId": "10",
+	"EquipmentDescription": "AA"
+}, {
+	"EquipmentId": "20",
+	"EquipmentDescription": "BB"
+}, {
+	"EquipmentId": "30",
+	"EquipmentDescription": "CC"
+}]

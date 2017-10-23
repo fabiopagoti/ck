@@ -5,7 +5,7 @@
 				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
 				<form:content>
 					<Label class="sapUiSmallMarginBeginEnd" text="{i18n>f4_reason}" required="true"/>
-					<TextArea class="sapUiSmallMarginBeginEnd" valueLiveUpdate="true" width="95%" value="{view>/reject/reason}"/>
+					<TextArea class="sapUiSmallMarginBeginEnd" valueLiveUpdate="true" width="95%" value="{view>/reject/reason}" maxLength="132" />
 				</form:content>
 			</form:SimpleForm>
 		</content>

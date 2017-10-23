@@ -43,7 +43,7 @@
 				text="Equipments"
 				key="Equipment"
 				multiSelect="true"
-				items="{ path: '/Equipments', model: '' }"
+				items="{/Equipments}"
 				>
 				<items>
 					<ViewSettingsItem text="{EquipmentDescription}" key="{EquipmentId}" />
@@ -53,15 +53,13 @@
 				text="Created On"
 				key="EnterDate">
 				<customControl>
-					<VBox>
-						<DateRangeSelection
-							delimiter=" - "
-							dateValue="{path: '/enterDate/value1', model: 'filters'}"
-							secondDateValue="{path: '/enterDate/value2', model: 'filters' }"
-							placeholder="dd/MM/yyyy"
-						/>
-						<!--secondDateValue="{path: '/enterDate/value2', model: 'filters', type: 'sap.ui.model.type.Date', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"-->
-					</VBox>
+					<DateRangeSelection
+						delimiter=" - "
+						change=".onChangeDateFilter"
+						dateValue="{filters>/enterDate/value1}"
+						secondDateValue="{filters>/enterDate/value2}"
+						placeholder="dd/MM/yyyy"
+					/>
 				</customControl>
 			</ViewSettingsCustomItem>
 		</filterItems>

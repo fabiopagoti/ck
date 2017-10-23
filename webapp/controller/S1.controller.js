@@ -132,6 +132,12 @@ sap.ui.define([
 			this._oDialogFilter.open();
 		},
 
+		onChangeDateFilter: function(oEvent) {
+			var oSource = oEvent.getSource();
+			this._oFilterModel.setProperty("/enterDate/value1", oSource.getDateValue());
+			this._oFilterModel.setProperty("/enterDate/value2", oSource.getSecondDateValue());
+		},
+
 		onConfirmAdvancedFilter: function(oEvent) {
 			var aFilters = [];
 			var oParameters = oEvent.getParameters();
