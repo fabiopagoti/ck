@@ -8,26 +8,27 @@
 					<Label text="{i18n>s4_form_label_associated_notification}"/>
 					<Text text="{NotifNo}"/>
 					<Label text="{i18n>s4_form_label_type}"/>
-					<Text text="MWO" />
+					<Text text="MWO"/>
 					<Label text="{i18n>s4_form_label_description}"/>
-					<Input value="{OrderDescription}" maxLength="40" />
+					<Input value="{OrderDescription}" maxLength="40"/>
 					<Label text="{i18n>s4_form_label_equipment}"/>
 					<Text text="{Equipment}"/>
 					<Label text="{i18n>s4_form_label_equipment_name}"/>
 					<Text text="{EquipmentDescription}"/>
 					<Label text="{i18n>s4_form_label_work_center}"/>
-					<Input id="work-center" value="105200" maxLength="8" />
+					<Input id="work-center" value="105200" maxLength="8"/>
 					<Label text="{i18n>s4_form_label_functional_location}"/>
 					<Text text="{FunctLoc} - {FunctLocDescription}"/>
 					<Label text="{i18n>s4_form_label_order_date}"/>
-					<Text text="{path: 'WorkOrderDate', formatter: '.formatter.today'}"/>
+					<DatePicker displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" placeholder="dd/mm/yyyy" value="{path: 'WorkOrderDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s4_form_label_notification_date}"/>
 					<Text text="{path: 'NotifDate', type: 'sap.ui.model.odata.type.DateTime', formatOptions: { utc: true, pattern: 'dd/MM/yyyy' } }"/>
 					<Label text="{i18n>s4_form_label_notification_author}"/>
 					<Text text="{NotifBy}"/>
 				</form:content>
 			</form:SimpleForm>
-			<Table mode="Delete" fixedLayout="true" noDataText="" items="{model: 'materials', path: '/', templateSharable: true}" delete="onDeleteMaterial">
+			<Table mode="Delete" fixedLayout="true" noDataText="" items="{model: 'materials', path: '/', templateSharable: true}"
+				delete="onDeleteMaterial">
 				<headerToolbar>
 					<Toolbar>
 						<Title text="{i18n>s4_table_title}"/>
@@ -52,7 +53,7 @@
 							<Input value="{materials>material}" valueHelpOnly="false" valueLiveUpdate="true" showValueHelp="true" type="Text"
 								valueHelpRequest=".onValueHelpRequestMaterial"/>
 							<Text text="{= ${materials>description}? ${materials>description} : null }"/>
-							<Input value="{materials>quantity}" type="Number" />
+							<Input value="{materials>quantity}" type="Number"/>
 						</cells>
 					</ColumnListItem>
 				</items>

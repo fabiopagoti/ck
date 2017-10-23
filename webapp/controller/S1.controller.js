@@ -63,10 +63,14 @@ sap.ui.define([
 				}, {
 					key: this.NOTIFICATION_TYPE_MAINTENANCE,
 					text: this.getText("NOTIFICATION_TYPE_MAINTENANCE")
-				}]
-
+				}],
+				enterDate: {
+					value1: null,
+					value2: null
+				}
 			});
 			this.setModel(oFilterModel, "filters");
+			this._oFilterModel = oFilterModel;
 
 			this.getRouter().getRoute("list").attachPatternMatched(this.onPatternMatched, this);
 		},
@@ -140,6 +144,14 @@ sap.ui.define([
 				sPath = oCurrentFilterItem.getParent().getKey();
 				sValue = oCurrentFilterItem.getKey();
 				aFilters.push(new Filter(sPath, FilterOperator.EQ, sValue));
+			}
+
+			var d1, d2;
+
+			d1 = this._oFilterModel.getProperty("/enterDate/value1");
+			d2 = this._oFilterModel.getProperty("/enterDate/value2");
+			if (d1 || d2) {
+				aFilters.push(new Filter("EnterDate", FilterOperator.BT, d1, d2));
 			}
 
 			this._oTable.getBinding("items").filter(aFilters, "Application");
