@@ -43,7 +43,7 @@
 				text="Equipments"
 				key="Equipment"
 				multiSelect="true"
-				items="{ path: '/Equipments' }"
+				items="{ path: '/Equipments', model: '' }"
 				>
 				<items>
 					<ViewSettingsItem text="{EquipmentDescription}" key="{EquipmentId}" />

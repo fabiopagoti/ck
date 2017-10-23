@@ -142,7 +142,12 @@ sap.ui.define([
 			for (var i = 0; i < aFilterItems.length; i++) {
 				oCurrentFilterItem = aFilterItems[i];
 				sPath = oCurrentFilterItem.getParent().getKey();
-				sValue = oCurrentFilterItem.getKey();
+
+				if (sPath === "EnteredBy") {
+					sValue = oCurrentFilterItem.getCustomData()[0].getKey();
+				} else {
+					sValue = oCurrentFilterItem.getKey();
+				}
 				aFilters.push(new Filter(sPath, FilterOperator.EQ, sValue));
 			}
 
