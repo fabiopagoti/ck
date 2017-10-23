@@ -56,8 +56,8 @@
 					<DateRangeSelection
 						delimiter=" - "
 						change=".onChangeDateFilter"
-						dateValue="{filters>/enterDate/value1}"
-						secondDateValue="{filters>/enterDate/value2}"
+						dateValue="{path: '/enterDate/value1', model: 'filters'}"
+						secondDateValue="{path: '/enterDate/value2', model: 'filters'}"
 						placeholder="dd/MM/yyyy"
 					/>
 				</customControl>

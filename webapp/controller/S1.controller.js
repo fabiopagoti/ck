@@ -134,8 +134,11 @@ sap.ui.define([
 
 		onChangeDateFilter: function(oEvent) {
 			var oSource = oEvent.getSource();
-			this._oFilterModel.setProperty("/enterDate/value1", oSource.getDateValue());
-			this._oFilterModel.setProperty("/enterDate/value2", oSource.getSecondDateValue());
+			var d1, d2;
+			d1 = new Date(oSource.getDateValue().setHours(0,0,0,0));
+			d2 = new Date(oSource.getSecondDateValue().setHours(0,0,0,0));
+			this._oFilterModel.setProperty("/enterDate/value1", d1);
+			this._oFilterModel.setProperty("/enterDate/value2", d2);
 		},
 
 		onConfirmAdvancedFilter: function(oEvent) {
@@ -150,7 +153,7 @@ sap.ui.define([
 				sPath = oCurrentFilterItem.getParent().getKey();
 
 				if (sPath === "EnteredBy") {
-					sValue = oCurrentFilterItem.getCustomData()[0].getKey();
+					sValue = oCurrentFilterItem.getCustomData()[0].getValue(); // cidnum
 				} else {
 					sValue = oCurrentFilterItem.getKey();
 				}

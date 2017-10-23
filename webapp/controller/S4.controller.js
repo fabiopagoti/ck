@@ -224,7 +224,7 @@ sap.ui.define([
 				OrderType: "MWO",
 				Plant: oNotification.Plant,
 				WorkCenter: this.byId("work-center").getValue(),
-				WorkOrderDate: oNotification.OrderDate,
+				OrderDate: oNotification.OrderDate,
 				NotifNo: oNotification.NotifNo,
 				Description: oNotification.OrderDescription
 			};
