@@ -28,14 +28,14 @@
 					<Text text="{NotifBy}"/>
 					<Label text="{i18n>s3_form_label_maintainer}"/>
 					<Input value="{= ${OpName}? ${OpName} : null }" valueHelpOnly="true" valueLiveUpdate="true" showValueHelp="true" type="Text"
-						valueHelpRequest=".onValueHelpRequestMaintainer" liveChange=".onLiveChangeInput">
+						valueHelpRequest=".onValueHelpRequestMaintainer" >
 						<customData>
 							<core:CustomData key="cidnum" value="{CidNum}" />
 						</customData>
 					</Input>
-					<Label text="{i18n>s3_form_label_operation_description}" required="true"/>
+					<Label text="{i18n>s3_form_label_operation_description}"/>
 					<Input value="{path: 'OperationDescription', type: 'sap.ui.model.odata.type.String', formatOptions: {nullable: false} }"
-						valueLiveUpdate="true" liveChange=".onLiveChangeInput"/>
+						valueLiveUpdate="true"/>
 				</form:content>
 			</form:SimpleForm>
 		</semantic:content>

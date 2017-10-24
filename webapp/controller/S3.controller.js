@@ -32,7 +32,7 @@ sap.ui.define([
 		onInit: function() {
 			var oViewModel = new JSONModel({
 				busy: false,
-				isMandatoryFieldsValid: false
+				isMandatoryFieldsValid: true
 			});
 
 			this.setModel(oViewModel, "view");
@@ -65,17 +65,6 @@ sap.ui.define([
 				var sObjectPath = `/OrderDetails('${oArguments.id}')`;
 				this._bindView(sObjectPath);
 			}.bind(this));
-		},
-
-		onLiveChangeInput: function(oEvent) {
-			var oWorkOrder = this.getView().getBindingContext().getObject();
-			var sInputOperationDescriptionValue = oWorkOrder.OperationDescription;
-
-			if (sInputOperationDescriptionValue && sInputOperationDescriptionValue.length > 0) {
-				this.getModel("view").setProperty("/isMandatoryFieldsValid", true);
-			} else {
-				this.getModel("view").setProperty("/isMandatoryFieldsValid", false);
-			}
 		},
 
 		onValueHelpRequestMaintainer: function(oEvent) {
